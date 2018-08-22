@@ -1,0 +1,22 @@
+.ngx-color-photoshop-fields {
+    .photoshop-fields {
+        padding-top: 5px;
+        padding-bottom: 9px;
+        width: 85px;
+        position: relative;
+      }
+      .photoshop-field-symbols {
+        position: absolute;
+        top: 5px;
+        right: -7px;
+        font-size: 13px;
+      }
+      .photoshop-symbol {
+        height: 24px;
+        line-height: 24px;
+        padding-bottom: 7px;
+      }
+      .photoshop-divider {
+        height: 5px;
+      }
+}

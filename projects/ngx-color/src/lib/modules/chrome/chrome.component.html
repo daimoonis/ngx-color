@@ -1,0 +1,24 @@
+<div class="chrome-picker {{ className }}">
+    <div class="saturation">
+        <ngx-color-saturation [hsl]="hsl" [hsv]="hsv" [circle]="circle" (onChange)="handleValueChange($event)"></ngx-color-saturation>
+    </div>
+    <div class="chrome-body">
+        <div class="chrome-controls">
+            <div class="chrome-color">
+                <div class="chrome-swatch">
+                    <div class="chrome-active" [style.background]="activeBackground"></div>
+                    <ngx-color-checkboard></ngx-color-checkboard>
+                </div>
+            </div>
+            <div class="chrome-toggles">
+                <div class="chrome-hue">
+                    <ngx-color-hue [radius]="2" [hsl]="hsl" [pointer]="pointer" (onChange)="handleValueChange($event)"></ngx-color-hue>
+                </div>
+                <div class="chrome-alpha" *ngIf="!disableAlpha">
+                    <ngx-color-alpha [radius]="2" [rgb]="rgb" [hsl]="hsl" [pointer]="pointer" (onChange)="handleValueChange($event)"></ngx-color-alpha>
+                </div>
+            </div>
+        </div>
+        <ngx-color-chrome-fields [rgb]="rgb" [hsl]="hsl" [hex]="hex" [disableAlpha]="disableAlpha" (onChange)="handleValueChange($event)"></ngx-color-chrome-fields>
+    </div>
+</div>

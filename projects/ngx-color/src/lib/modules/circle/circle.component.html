@@ -1,0 +1,4 @@
+<div class="circle-picker {{ className }}" [style.width.px]="width" [style.margin-right.px]="-circleSpacing" [style.margin-bottom.px]="-circleSpacing">
+    <ngx-color-circle-swatch *ngFor="let color of colors" [color]="color" [focus]="isActive(color)" (onClick)="handleBlockChange($event)"
+        (onSwatchHover)="onSwatchHover.emit($event)"></ngx-color-circle-swatch>
+</div>

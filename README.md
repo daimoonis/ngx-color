@@ -3,14 +3,11 @@
   <br>
   <h1>Angular Color</h1>
   <br>
-  <a href="https://www.npmjs.org/package/ngx-color">
+  Forked from <a href="https://github.com/scttcper/ngx-color">https://github.com/scttcper/ngx-color</a> and enhanced
+  <br>
+  <a href="https://www.npmjs.com/package/@daimoonis/ngx-color">
     <img src="https://badge.fury.io/js/ngx-color.svg" alt="npm">
   </a> 
-  <a href="https://travis-ci.org/scttcper/ngx-color">
-    <img src="https://travis-ci.org/scttcper/ngx-color.svg?branch=master" alt="travis"></a> 
-  <a href="https://codecov.io/github/scttcper/ngx-color">
-    <img src="https://img.shields.io/codecov/c/github/scttcper/ngx-color.svg" alt="codecov">
-  </a>
 </div>
 
 <br>
@@ -33,8 +30,8 @@
 
 * **Make Your Own** - Use the building block components to make your own
 
-* This is a port of [react-color](https://github.com/casesandberg/react-color)
-  by casesandberg
+* This is a fork of (https://github.com/scttcper/ngx-color)
+  by scttcper
 
 ## Getting Started
 
@@ -49,7 +46,7 @@ npm install ngx-color --save
 ##### import
 
 ```ts
-import { ColorSketchModule } from 'ngx-color/sketch';
+import { ColorSketchModule } from '@daimoonis/ngx-color/sketch';
 
 @NgModule({
   imports: [
@@ -62,25 +59,25 @@ class YourModule {}
 ##### use
 
 ```html
-<color-sketch [color]="state" (onChangeComplete)="changeComplete($event)"></color-sketch>
+<ngx-color-sketch [color]="state" (onChangeComplete)="changeComplete($event)"></ngx-color-sketch>
 ```
 
 ### Others available
 
 ```ts
-import { ColorAlphaModule } from 'ngx-color/alpha'; // <color-alpha-picker></color-alpha-picker>
-import { ColorBlockModule } from 'ngx-color/block'; // <color-block></color-block>
-import { ColorChromeModule } from 'ngx-color/chrome'; // <color-chrome></color-chrome>
-import { ColorCircleModule } from 'ngx-color/circle'; // <color-circle></color-circle>
-import { ColorCompactModule } from 'ngx-color/compact'; // <color-compact></color-compact>
-import { ColorGithubModule } from 'ngx-color/github'; // <color-github></color-github>
-import { ColorHueModule } from 'ngx-color/hue'; // <color-hue-picker></color-hue-picker>
-import { ColorMaterialModule } from 'ngx-color/material'; // <color-material></color-material>
-import { ColorPhotoshopModule } from 'ngx-color/photoshop'; // <color-photoshop></color-photoshop>
-import { ColorSketchModule } from 'ngx-color/sketch'; // <color-sketch></color-sketch>
-import { ColorSliderModule } from 'ngx-color/slider'; // <color-slider></color-slider>
-import { ColorSwatchesModule } from 'ngx-color/swatches'; // <color-swatches></color-swatches>
-import { ColorTwitterModule } from 'ngx-color/twitter'; // <color-twitter></color-twitter>
+import { ColorAlphaModule } from '@daimoonis/ngx-color/alpha'; // <ngx-color-alpha-picker></ngx-color-alpha-picker>
+import { ColorBlockModule } from '@daimoonis/ngx-color/block'; // <ngx-color-block></ngx-color-block>
+import { ColorChromeModule } from '@daimoonis/ngx-color/chrome'; // <ngx-color-chrome></ngx-color-chrome>
+import { ColorCircleModule } from '@daimoonis/ngx-color/circle'; // <ngx-color-circle></ngx-color-circle>
+import { ColorCompactModule } from '@daimoonis/ngx-color/compact'; // <ngx-color-compact></ngx-color-compact>
+import { ColorGithubModule } from '@daimoonis/ngx-color/github'; // <ngx-color-github></ngx-color-github>
+import { ColorHueModule } from '@daimoonis/ngx-color/hue'; // <ngx-color-hue-picker></ngx-color-hue-picker>
+import { ColorMaterialModule } from '@daimoonis/ngx-color/material'; // <ngx-color-material></ngx-color-material>
+import { ColorPhotoshopModule } from '@daimoonis/ngx-color/photoshop'; // <ngx-color-photoshop></ngx-color-photoshop>
+import { ColorSketchModule } from '@daimoonis/ngx-color/sketch'; // <ngx-color-sketch></ngx-color-sketch>
+import { ColorSliderModule } from '@daimoonis/ngx-color/slider'; // <ngx-color-slider></ngx-color-slider>
+import { ColorSwatchesModule } from '@daimoonis/ngx-color/swatches'; // <ngx-color-swatches></ngx-color-swatches>
+import { ColorTwitterModule } from '@daimoonis/ngx-color/twitter'; // <ngx-color-twitter></ngx-color-twitter>
 ```
 
 # Component API
@@ -96,10 +93,10 @@ values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl
 will also take a `a: 1` value for alpha. You can also use `transparent`.
 
 ```html
-<color-sketch
+<ngx-color-sketch
   color="#fff"
   (onChangeComplete)="handleChangeComplete($event)"
-></color-sketch>
+></ngx-color-sketch>
 ```
 
 In this case, the color picker will initialize with the color `#fff`. When the
@@ -116,12 +113,12 @@ you just need to get the color once use `onChangeComplete`.
 
 ```ts
 import { Component } from '@angular/core';
-import { ColorEvent } from 'ngx-color';
+import { ColorEvent } from '@daimoonis/ngx-color';
 
 @Component({
   selector: 'selector-name',
   template: `
-  <color-sketch (onChange)="handleChange($event)"></color-sketch>
+  <ngx-color-sketch (onChange)="handleChange($event)"></ngx-color-sketch>
   `,
 })
 export class NameComponent {
@@ -269,5 +266,4 @@ None
 
 ---
 
-> GitHub [@scttcper](https://github.com/scttcper) &nbsp;&middot;&nbsp;
-> Twitter [@scttcper](https://twitter.com/scttcper)
+> GitHub [@daimoonis](https://github.com/daimoonis)

@@ -1,0 +1,14 @@
+.ngx-color-compact-color {
+    .compact-dot {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        left: 5px;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    .compact-dot.active {
+        opacity: 1;
+    }
+}

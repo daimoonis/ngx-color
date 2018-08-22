@@ -1,0 +1,7 @@
+<div class="color-hue color-hue-{{direction}}" [style.border-radius.px]="radius" [style.box-shadow]="shadow">
+    <div ngxColorCoordinates (coordinatesChange)="handleChange($event)" class="color-hue-container">
+        <div class="color-hue-pointer" [style.left]="left" [style.top]="top" *ngIf="!hidePointer">
+            <div class="color-hue-slider" [ngStyle]="pointer"></div>
+        </div>
+    </div>
+</div>

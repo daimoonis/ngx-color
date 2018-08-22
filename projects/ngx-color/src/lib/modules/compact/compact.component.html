@@ -1,0 +1,9 @@
+<ngx-color-raised class="color-compact">
+    <div class="compact-picker {{ className }}">
+        <div>
+            <ngx-color-compact-color *ngFor="let color of colors" [color]="color" [active]="color.toLowerCase() === hex.toLowerCase()" (onClick)="handleBlockChange($event)"></ngx-color-compact-color>
+            <div class="compact-clear"></div>
+        </div>
+        <ngx-color-compact-fields [hex]="hex" [rgb]="rgb" (onChange)="handleValueChange($event)"></ngx-color-compact-fields>
+    </div>
+</ngx-color-raised>

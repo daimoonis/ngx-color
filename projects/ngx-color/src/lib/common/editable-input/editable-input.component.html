@@ -1,0 +1,7 @@
+<div class="ngx-color-editable-input-wrap" [ngStyle]="wrapStyle">
+    <input [ngStyle]="inputStyle" spellCheck="false" [value]="currentValue" [placeholder]="placeholder" (keydown)="handleKeydown($event)"
+        (keyup)="handleKeyup($event)" (focus)="handleFocus($event)" (focusout)="handleFocusOut($event)" />
+    <span *ngIf="label" [ngStyle]="labelStyle" (mousedown)="handleMousedown($event)">
+        {{ label }}
+    </span>
+</div>

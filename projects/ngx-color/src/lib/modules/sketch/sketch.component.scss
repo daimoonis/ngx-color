@@ -1,0 +1,55 @@
+.ngx-color-sketch {
+    .sketch-picker {
+        padding: 10px 10px 0;
+        box-sizing: initial;
+        background: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 8px 16px rgba(0, 0, 0, .15);
+    }
+    .sketch-saturation {
+        width: 100%;
+        padding-bottom: 75%;
+        position: relative;
+        overflow: hidden;
+    }
+    .sketch-controls {
+        display: flex;
+    }
+    .sketch-sliders {
+        padding: 4px 0px;
+        -webkit-box-flex: 1;
+        flex: 1 1 0%;
+    }
+    .sketch-hue {
+        position: relative;
+        height: 10px;
+        overflow: hidden;
+    }
+    .sketch-alpha {
+        position: relative;
+        height: 10px;
+        margin-top: 4px;
+        overflow: hidden;
+    }
+    .sketch-color {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        margin-top: 4px;
+        margin-left: 4px;
+        border-radius: 3px;
+    }
+    .sketch-active {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset;
+    }
+    color-sketch-fields {
+        flex: 1 1 0%;
+        display: flex;
+    }
+}

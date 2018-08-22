@@ -1,0 +1,5 @@
+<div class="swatches-group">
+    <ngx-color-swatches-color *ngFor="let color of group; let idx = index;" [active]="color.toLowerCase() === active" [color]="color"
+        [first]="idx === 0" [last]="idx === group.length - 1" (onClick)="onClick.emit($event)">
+    </ngx-color-swatches-color>
+</div>

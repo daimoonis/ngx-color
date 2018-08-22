@@ -1,0 +1,12 @@
+.ngx-color-circle-swatch {
+    .circle-swatch {
+        transform: scale(1);
+        transition: transform 100ms ease;
+    }
+    .circle-swatch:hover {
+        transform: scale(1.2);
+    }
+    .circle-swatch-clear {
+        clear: both;
+    }
+}

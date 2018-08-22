@@ -1,0 +1,15 @@
+.ngx-color-compact-fields {
+    .compact-fields {
+        display: flex;
+        padding-bottom: 6px;
+        padding-right: 5px;
+        position: relative;
+    }
+    .compact-active {
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        height: 9px;
+        width: 9px;
+    }
+}

@@ -1,0 +1,8 @@
+<div class="color-saturation" ngxColorCoordinates (coordinatesChange)="handleChange($event)" [style.background]="background">
+    <div class="saturation-white">
+        <div class="saturation-black"></div>
+        <div class="saturation-pointer" [ngStyle]="pointer" [style.top]="pointerTop" [style.left]="pointerLeft">
+            <div class="saturation-circle" [ngStyle]="circle"></div>
+        </div>
+    </div>
+</div>

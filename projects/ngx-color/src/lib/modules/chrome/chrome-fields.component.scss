@@ -1,0 +1,35 @@
+.ngx-color-chrome-fields {
+    .chrome-wrap {
+        padding-top: 16px;
+        display: flex;
+    }
+    .chrome-fields {
+        flex: 1;
+        display: flex;
+        margin-left: -6px;
+    }
+    .chrome-field {
+        padding-left: 6px;
+        width: 100%;
+    }
+    .chrome-toggle {
+        width: 32px;
+        text-align: right;
+        position: relative;
+    }
+    .chrome-icon {
+        margin-right: -4px;
+        margin-top: 12px;
+        cursor: pointer;
+        position: relative;
+    }
+    .chrome-toggle-svg {
+        width: 24px;
+        height: 24px;
+        border: 1px transparent solid;
+        border-radius: 5px;
+    }
+    .chrome-toggle-svg:hover {
+        background: #eee;
+    }
+}

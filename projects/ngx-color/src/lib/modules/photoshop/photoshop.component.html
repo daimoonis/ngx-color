@@ -1,0 +1,24 @@
+<div class="photoshop-picker {{ className }}">
+    <div class="photoshop-head">{{ header }}</div>
+    <div class="photoshop-body">
+        <div class="photoshop-saturation">
+            <ngx-color-saturation [hsl]="hsl" [hsv]="hsv" [circle]="circle" (onChange)="handleValueChange($event)"></ngx-color-saturation>
+        </div>
+        <div class="photoshop-hue">
+            <ngx-color-hue direction="vertical" [hsl]="hsl" [hidePointer]="true" (onChange)="handleValueChange($event)"></ngx-color-hue>
+        </div>
+        <div class="photoshop-controls">
+            <div class="photoshop-top">
+                <div class="photoshop-previews">
+                    <ngx-color-photoshop-previews [rgb]="rgb" [currentColor]="currentColor"></ngx-color-photoshop-previews>
+                </div>
+                <div class="photoshop-actions">
+                    <ngx-color-photoshop-button label="OK" [active]="true" (click)="onAccept.emit($event)"></ngx-color-photoshop-button>
+                    <ngx-color-photoshop-button label="Cancel" (click)="onCancel.emit($event)">
+                    </ngx-color-photoshop-button>
+                    <ngx-color-photoshop-fields [rgb]="rgb" [hex]="hex" [hsv]="hsv" (onChange)="handleValueChange($event)"></ngx-color-photoshop-fields>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

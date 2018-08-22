@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-color": {
+    "ngx-color-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-color:build"
+            "browserTarget": "ngx-color-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-color:build:production"
+              "browserTarget": "ngx-color-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-color:build"
+            "browserTarget": "ngx-color-app:build"
           }
         },
         "test": {
@@ -94,7 +94,52 @@
           }
         }
       }
+    },
+    "ngx-color": {
+      "root": "projects/ngx-color",
+      "sourceRoot": "projects/ngx-color/src",
+      "projectType": "library",
+      "prefix": "ngx-color",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-color/tsconfig.lib.json",
+            "project": "projects/ngx-color/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-color/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-color/src/test.ts",
+            "tsConfig": "projects/ngx-color/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-color/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-color/tsconfig.lib.json",
+              "projects/ngx-color/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "ngx-color"
+  "defaultProject": "ngx-color-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

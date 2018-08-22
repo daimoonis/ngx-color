@@ -1,0 +1,16 @@
+<ngx-color-raised>
+    <div class="material-picker {{ className }}">
+        <ngx-color-editable-input label="hex" [value]="hex" (onChange)="handleValueChange($event)" [style]="{input: HEXinput, label: HEXlabel}"></ngx-color-editable-input>
+        <div class="material-split">
+            <div class="material-third">
+                <ngx-color-editable-input label="r" [value]="rgb.r" [style]="{ input: RGBinput, label: RGBlabel }" (onChange)="handleInputChange($event)"></ngx-color-editable-input>
+            </div>
+            <div class="material-third">
+                <ngx-color-editable-input label="g" [value]="rgb.g" [style]="{ input: RGBinput, label: RGBlabel }" (onChange)="handleInputChange($event)"></ngx-color-editable-input>
+            </div>
+            <div class="material-third">
+                <ngx-color-editable-input label="b" [value]="rgb.b" [style]="{ input: RGBinput, label: RGBlabel }" (onChange)="handleInputChange($event)"></ngx-color-editable-input>
+            </div>
+        </div>
+    </div>
+</ngx-color-raised>

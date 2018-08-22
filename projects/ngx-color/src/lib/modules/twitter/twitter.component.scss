@@ -1,0 +1,87 @@
+.ngx-color-twitter {
+    .twitter-picker {
+        background: rgb(255, 255, 255);
+        border: 0px solid rgba(0, 0, 0, 0.25);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+        border-radius: 4px;
+        position: relative;
+        box-sizing: border-box;
+    }
+    .triangleShadow {
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0px 9px 10px;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1);
+        position: absolute;
+    }
+    .triangle {
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0px 9px 10px;
+        border-color: transparent transparent rgb(255, 255, 255);
+        position: absolute;
+    }
+    .hide-triangle>.triangle {
+        display: none;
+    }
+    .hide-triangle>.triangleShadow {
+        display: none;
+    }
+    .top-left-triangle>.triangle {
+        top: -10px;
+        left: 12px;
+    }
+    .top-left-triangle>.triangleShadow {
+        top: -11px;
+        left: 12px;
+    }
+    .top-right-triangle>.triangle {
+        top: -10px;
+        right: 12px;
+    }
+    .top-right-triangle>.triangleShadow {
+        top: -11px;
+        right: 12px;
+    }
+    .twitter-body {
+        padding: 15px 9px 9px 15px;
+    }
+    .twitter-swatch {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        margin: 0 6px 0 0;
+    }
+    .twitter-hash {
+        background: rgb(240, 240, 240);
+        height: 30px;
+        width: 30px;
+        border-radius: 4px 0px 0px 4px;
+        color: rgb(152, 161, 164);
+        margin-left: -3px;
+        display: inline-block;
+    }
+    .twitter-hash>div {
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 30px;
+        display: flex;
+    }
+    .twitter-input {
+        position: relative;
+        display: inline-block;
+        margin-top: -6px;
+        font-size: 10px;
+        height: 27px;
+        padding: 0;
+        position: relative;
+        top: 6px;
+        vertical-align: top;
+        width: 108px;
+        margin-left: -4px;
+    }
+}

@@ -1,0 +1,26 @@
+<div class="sketch-picker {{ className }}" [style.width]="width">
+    <div class="sketch-saturation">
+        <ngx-color-saturation [hsl]="hsl" [hsv]="hsv" (onChange)="handleValueChange($event)">
+        </ngx-color-saturation>
+    </div>
+    <div class="sketch-controls">
+        <div class="sketch-sliders">
+            <div class="sketch-hue">
+                <ngx-color-hue [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-hue>
+            </div>
+            <div class="sketch-alpha">
+                <ngx-color-alpha [radius]="2" [rgb]="rgb" [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-alpha>
+            </div>
+        </div>
+        <div class="sketch-color">
+            <ngx-color-checkboard></ngx-color-checkboard>
+            <div class="sketch-active" [style.background]="activeBackground"></div>
+        </div>
+    </div>
+    <div class="sketch-controls">
+        <ngx-color-sketch-fields [rgb]="rgb" [hsl]="hsl" [hex]="hex" [disableAlpha]="disableAlpha" (onChange)="handleValueChange($event)"></ngx-color-sketch-fields>
+    </div>
+    <div class="sketch-controls">
+        <ngx-color-sketch-preset-colors [colors]="presetColors" (onClick)="handleBlockChange($event)" (onSwatchHover)="onSwatchHover.emit($event)"></ngx-color-sketch-preset-colors>
+    </div>
+</div>

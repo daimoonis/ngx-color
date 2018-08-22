@@ -1,0 +1,9 @@
+<div class="swatches-picker {{ className }}" [style.width.px]="width" [style.height.px]="height">
+    <ngx-color-raised>
+        <div class="swatches-overflow" [style.height.px]="height">
+            <div class="swatches-body">
+                <ngx-color-swatches-group *ngFor="let group of colors" [group]="group" [active]="hex" (onClick)="handlePickerChange($event)"></ngx-color-swatches-group>
+            </div>
+        </div>
+    </ngx-color-raised>
+</div>

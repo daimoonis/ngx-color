@@ -1,0 +1,19 @@
+.ngx-color-sketch-fields {
+    .sketch-fields {
+        display: flex;
+        padding-top: 4px;
+    }
+    .sketch-double {
+        -webkit-box-flex: 2;
+        flex: 2 1 0%;
+    }
+    .sketch-single {
+        flex: 1 1 0%;
+        padding-left: 6px;
+    }
+    .sketch-alpha {
+        -webkit-box-flex: 1;
+        flex: 1 1 0%;
+        padding-left: 6px;
+    }
+}
