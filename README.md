@@ -5,8 +5,9 @@
   <br>
   Forked from <a href="https://github.com/scttcper/ngx-color">https://github.com/scttcper/ngx-color</a> and enhanced
   <br>
+  <br>
   <a href="https://www.npmjs.com/package/@daimoonis/ngx-color">
-    <img src="https://badge.fury.io/js/ngx-color.svg" alt="npm">
+    Link to npm
   </a> 
 </div>
 
