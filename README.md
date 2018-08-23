@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/scttcper/ngx-color/master/misc/sketch-example.png" width="225" alt="Angular color sketch preview">
+  <img src="https://raw.githubusercontent.com/daimoonis/ngx-color/master/misc/sketch-example.png" width="225" alt="Angular color sketch preview">
   <br>
   <h1>Angular Color</h1>
   <br>
@@ -8,7 +8,8 @@
   <br>
   <a href="https://www.npmjs.com/package/@daimoonis/ngx-color">
     Link to npm
-  </a> 
+  </a>
+  <br>
 </div>
 
 <br>
@@ -34,12 +35,17 @@
 * This is a fork of (https://github.com/scttcper/ngx-color)
   by scttcper
 
+### Main enhancements
+* each component uses encapsulation strategy as ViewEncapsulation.None
+* fix for sketch component for IE 11
+* code refactored
+
 ## Getting Started
 
 ### Install
 
 ```sh
-npm install ngx-color --save
+npm install @daimoonis/ngx-color --save
 ```
 
 ### Include Component
@@ -47,7 +53,7 @@ npm install ngx-color --save
 ##### import
 
 ```ts
-import { ColorSketchModule } from '@daimoonis/ngx-color/sketch';
+import { ColorSketchModule } from '@daimoonis/ngx-color';
 
 @NgModule({
   imports: [
@@ -66,19 +72,19 @@ class YourModule {}
 ### Others available
 
 ```ts
-import { ColorAlphaModule } from '@daimoonis/ngx-color/alpha'; // <ngx-color-alpha-picker></ngx-color-alpha-picker>
-import { ColorBlockModule } from '@daimoonis/ngx-color/block'; // <ngx-color-block></ngx-color-block>
-import { ColorChromeModule } from '@daimoonis/ngx-color/chrome'; // <ngx-color-chrome></ngx-color-chrome>
-import { ColorCircleModule } from '@daimoonis/ngx-color/circle'; // <ngx-color-circle></ngx-color-circle>
-import { ColorCompactModule } from '@daimoonis/ngx-color/compact'; // <ngx-color-compact></ngx-color-compact>
-import { ColorGithubModule } from '@daimoonis/ngx-color/github'; // <ngx-color-github></ngx-color-github>
-import { ColorHueModule } from '@daimoonis/ngx-color/hue'; // <ngx-color-hue-picker></ngx-color-hue-picker>
-import { ColorMaterialModule } from '@daimoonis/ngx-color/material'; // <ngx-color-material></ngx-color-material>
-import { ColorPhotoshopModule } from '@daimoonis/ngx-color/photoshop'; // <ngx-color-photoshop></ngx-color-photoshop>
-import { ColorSketchModule } from '@daimoonis/ngx-color/sketch'; // <ngx-color-sketch></ngx-color-sketch>
-import { ColorSliderModule } from '@daimoonis/ngx-color/slider'; // <ngx-color-slider></ngx-color-slider>
-import { ColorSwatchesModule } from '@daimoonis/ngx-color/swatches'; // <ngx-color-swatches></ngx-color-swatches>
-import { ColorTwitterModule } from '@daimoonis/ngx-color/twitter'; // <ngx-color-twitter></ngx-color-twitter>
+import { ColorAlphaModule } from '@daimoonis/ngx-color'; // <ngx-color-alpha-picker></ngx-color-alpha-picker>
+import { ColorBlockModule } from '@daimoonis/ngx-color'; // <ngx-color-block></ngx-color-block>
+import { ColorChromeModule } from '@daimoonis/ngx-color'; // <ngx-color-chrome></ngx-color-chrome>
+import { ColorCircleModule } from '@daimoonis/ngx-color'; // <ngx-color-circle></ngx-color-circle>
+import { ColorCompactModule } from '@daimoonis/ngx-color'; // <ngx-color-compact></ngx-color-compact>
+import { ColorGithubModule } from '@daimoonis/ngx-color'; // <ngx-color-github></ngx-color-github>
+import { ColorHueModule } from '@daimoonis/ngx-color'; // <ngx-color-hue-picker></ngx-color-hue-picker>
+import { ColorMaterialModule } from '@daimoonis/ngx-color'; // <ngx-color-material></ngx-color-material>
+import { ColorPhotoshopModule } from '@daimoonis/ngx-color'; // <ngx-color-photoshop></ngx-color-photoshop>
+import { ColorSketchModule } from '@daimoonis/ngx-color'; // <ngx-color-sketch></ngx-color-sketch>
+import { ColorSliderModule } from '@daimoonis/ngx-color'; // <ngx-color-slider></ngx-color-slider>
+import { ColorSwatchesModule } from '@daimoonis/ngx-color'; // <ngx-color-swatches></ngx-color-swatches>
+import { ColorTwitterModule } from '@daimoonis/ngx-color'; // <ngx-color-twitter></ngx-color-twitter>
 ```
 
 # Component API
