@@ -16,8 +16,8 @@ import { ColorWrap, toState } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class HuePickerComponent extends ColorWrap implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-hue-picker';
+    @HostBinding('class.ngx-color-hue-picker')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 316;
     /** Pixel value for picker height */

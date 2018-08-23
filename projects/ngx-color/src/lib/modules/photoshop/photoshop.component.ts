@@ -19,8 +19,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class PhotoshopComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-photoshop';
+    @HostBinding('class.ngx-color-photoshop')
+    _hostClass = true;
     /** Title text */
     @Input() header = 'Color Picker';
     @Output() onAccept = new EventEmitter<Event>();

@@ -19,8 +19,8 @@ import { HSLA, HSVA, HSVAsource } from '../helpers/color.interfaces';
     encapsulation: ViewEncapsulation.None
 })
 export class SaturationComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-saturation';
+    @HostBinding('class.ngx-color-saturation')
+    _hostClass = true;
     @Input() hsl: HSLA;
     @Input() hsv: HSVA;
     @Input() radius: number;

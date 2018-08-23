@@ -18,8 +18,8 @@ import { isValidHex, HSLA, RGBA } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SketchFieldsComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-sketch-fields';
+    @HostBinding('class.ngx-color-sketch-fields')
+    _hostClass = true;
     @Input() hsl: HSLA;
     @Input() rgb: RGBA;
     @Input() hex: string;

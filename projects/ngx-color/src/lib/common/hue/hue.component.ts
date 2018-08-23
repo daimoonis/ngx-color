@@ -19,8 +19,8 @@ import { HSLA, HSLAsource } from '../helpers/color.interfaces';
     encapsulation: ViewEncapsulation.None
 })
 export class HueComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-hue';
+    @HostBinding('class.ngx-color-hue')
+    _hostClass = true;
     @Input() hsl: HSLA;
     @Input() pointer: { [key: string]: string };
     @Input() radius: number;

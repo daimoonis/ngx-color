@@ -16,8 +16,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class SwatchesGroupComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-swatches-group';
+    @HostBinding('class.ngx-color-swatches-group')
+    _hostClass = true;
     @Input() group: string[];
     @Input() active: string;
     @Output() onClick = new EventEmitter<any>();

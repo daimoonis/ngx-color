@@ -19,8 +19,8 @@ import { Shape } from '../../common';
     preserveWhitespaces: false,
 })
 export class SketchPresetColorsComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-sketch-preset-colors';
+    @HostBinding('class.ngx-color-sketch-preset-colors')
+    _hostClass = true;
     @Input() colors: string[] | Shape[];
     @Output() onClick = new EventEmitter<any>();
     @Output() onSwatchHover = new EventEmitter<any>();

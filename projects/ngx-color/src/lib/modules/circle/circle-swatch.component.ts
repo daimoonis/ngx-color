@@ -17,8 +17,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class CircleSwatchComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-circle-swatch';
+    @HostBinding('class.ngx-color-circle-swatch')
+    _hostClass = true;
     @Input() color: string;
     @Input() circleSize = 28;
     @Input() circleSpacing = 14;

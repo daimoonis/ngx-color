@@ -19,8 +19,8 @@ import { getContrastingColor } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class CompactColorComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-compact-color';
+    @HostBinding('class.ngx-color-compact-color')
+    _hostClass = true;
     @Input() color: string;
     @Input() active: boolean;
     @Output() onClick = new EventEmitter<any>();

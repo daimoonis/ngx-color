@@ -9,8 +9,8 @@ import { Shape } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class BlockSwatchesComponent implements OnInit {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-block-swatches';
+    @HostBinding('class.ngx-color-block-swatches')
+    _hostClass = true;
     @Input() colors: string[] | Shape[];
     @Output() onClick = new EventEmitter<any>();
     @Output() onSwatchHover = new EventEmitter<any>();

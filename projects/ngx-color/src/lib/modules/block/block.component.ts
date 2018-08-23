@@ -18,8 +18,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class BlockComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-block';
+    @HostBinding('class.ngx-color-block')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 170;
     /** Color squares to display */

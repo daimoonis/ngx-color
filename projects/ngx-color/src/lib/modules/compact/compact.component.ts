@@ -19,8 +19,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class CompactComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-compact';
+    @HostBinding('class.ngx-color-compact')
+    _hostClass = true;
     /** Color squares to display */
     @Input() colors = [
         '#4D4D4D',

@@ -16,8 +16,8 @@ import { ColorWrap } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SliderComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-slider';
+    @HostBinding('class.ngx-color-slider')
+    _hostClass = true;
     @Input()
     pointer: { [key: string]: string } = {
         width: '14px',

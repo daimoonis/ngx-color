@@ -16,8 +16,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class SwatchComponent implements OnInit {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-swatch';
+    @HostBinding('class.ngx-color-swatch')
+    _hostClass = true;
     @Input() color;
     @Input() style: { [key: string]: string } = {};
     @Input() focusStyle: { [key: string]: string } = {};

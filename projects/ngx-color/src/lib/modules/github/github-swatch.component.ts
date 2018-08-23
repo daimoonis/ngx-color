@@ -16,8 +16,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class GithubSwatchComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-github-swatch';
+    @HostBinding('class.ngx-color-github-swatch')
+    _hostClass = true;
     @Input() color: string;
     @Output() onClick = new EventEmitter<any>();
     @Output() onSwatchHover = new EventEmitter<any>();

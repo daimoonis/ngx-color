@@ -18,8 +18,8 @@ import { HSL } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SliderSwatchComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-slider-swatch';
+    @HostBinding('class.ngx-color-slider-swatch')
+    _hostClass = true;
     @Input() hsl: HSL;
     @Input() active: boolean;
     @Input() offset: number;

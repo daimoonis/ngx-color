@@ -21,8 +21,8 @@ import { fromEvent, Subscription } from 'rxjs';
     encapsulation: ViewEncapsulation.None
 })
 export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-editable-input';
+    @HostBinding('class.ngx-color-editable-input')
+    _hostClass = true;
     @Input() style: {
         wrap: { [key: string]: string };
         input: { [key: string]: string };

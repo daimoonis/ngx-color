@@ -9,8 +9,8 @@ import { ColorWrap, isValidHex } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class TwitterComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-twitter';
+    @HostBinding('class.ngx-color-twitter')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 276;
     /** Color squares to display */

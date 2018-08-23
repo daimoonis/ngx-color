@@ -18,8 +18,8 @@ import { getContrastingColor } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SwatchesColorComponent implements OnInit {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-swatches-color';
+    @HostBinding('class.ngx-color-swatches-color')
+    _hostClass = true;
     @Input() color: string;
     @Input() first = false;
     @Input() last = false;

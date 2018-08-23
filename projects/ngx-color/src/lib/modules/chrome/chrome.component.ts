@@ -17,8 +17,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class ChromeComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-chrome';
+    @HostBinding('class.ngx-color-chrome')
+    _hostClass = true;
     /** Remove alpha slider and options from picker */
     @Input() disableAlpha = false;
     circle: { [key: string]: string } = {

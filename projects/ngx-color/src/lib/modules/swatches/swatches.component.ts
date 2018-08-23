@@ -35,8 +35,8 @@ import { ColorWrap } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SwatchesComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-swatches';
+    @HostBinding('class.ngx-color-swatches')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 320;
     /** Color squares to display */

@@ -15,8 +15,8 @@ import { ColorWrap, isValidHex } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class GithubComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-github';
+    @HostBinding('class.ngx-color-github')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 212;
     /** Color squares to display */

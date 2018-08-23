@@ -16,8 +16,8 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class PhotoshopButtonComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-photoshop-button';
+    @HostBinding('class.ngx-color-photoshop-button')
+    _hostClass = true;
     @Input() label = '';
     @Input() active = false;
     @Output() click = new EventEmitter<Event>();

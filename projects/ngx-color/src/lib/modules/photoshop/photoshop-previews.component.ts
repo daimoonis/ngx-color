@@ -16,8 +16,8 @@ import { RGB } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class PhotoshopPreviewsComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-photoshop-previews';
+    @HostBinding('class.ngx-color-photoshop-previews')
+    _hostClass = true;
     @Input() rgb: RGB;
     @Input() currentColor = '';
     backgroundNew = '';

@@ -4,6 +4,7 @@ import {
     Input,
     OnInit,
     ViewEncapsulation,
+    HostBinding,
 } from '@angular/core';
 
 import { getCheckerboard } from '../helpers/checkboard';
@@ -16,6 +17,8 @@ import { getCheckerboard } from '../helpers/checkboard';
     encapsulation: ViewEncapsulation.None
 })
 export class CheckboardComponent implements OnInit {
+    @HostBinding('class.ngx-color-checkboard')
+    _hostClass = true;
     @Input() white = 'transparent';
     @Input() size = 8;
     @Input() grey = 'rgba(0,0,0,.08)';

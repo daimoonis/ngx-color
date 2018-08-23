@@ -18,8 +18,8 @@ import { isValidHex, RGBA } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class CompactFieldsComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-compact-fields';
+    @HostBinding('class.ngx-color-compact-fields')
+    _hostClass = true;
     @Input() hex: string;
     @Input() rgb: RGBA;
     @Output() onChange = new EventEmitter<any>();

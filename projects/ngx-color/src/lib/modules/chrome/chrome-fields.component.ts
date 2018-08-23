@@ -18,8 +18,8 @@ import { isValidHex, HSLA, RGBA } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class ChromeFieldsComponent implements OnInit {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-chrome-fields';
+    @HostBinding('class.ngx-color-chrome-fields')
+    _hostClass = true;
     @Input() disableAlpha;
     @Input() hsl: HSLA;
     @Input() rgb: RGBA;

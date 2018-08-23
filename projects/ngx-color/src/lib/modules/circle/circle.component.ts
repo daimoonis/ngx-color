@@ -35,8 +35,8 @@ import { ColorWrap, isValidHex } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class CircleComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-circle';
+    @HostBinding('class.ngx-color-circle')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 252;
     /** Color squares to display */

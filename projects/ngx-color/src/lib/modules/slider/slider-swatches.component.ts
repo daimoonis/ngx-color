@@ -17,8 +17,8 @@ import { HSL } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SliderSwatchesComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-slider-swatches';
+    @HostBinding('class.ngx-color-slider-swatches')
+    _hostClass = true;
     @Input() hsl: HSL;
     @Output() onClick = new EventEmitter<any>();
     @Output() onSwatchHover = new EventEmitter<any>();

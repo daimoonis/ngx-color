@@ -18,8 +18,8 @@ import { isValidHex, HSV, RGB } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class PhotoshopFieldsComponent {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-photoshop-fields';
+    @HostBinding('class.ngx-color-photoshop-fields')
+    _hostClass = true;
     @Input() rgb: RGB;
     @Input() hsv: HSV;
     @Input() hex: string;

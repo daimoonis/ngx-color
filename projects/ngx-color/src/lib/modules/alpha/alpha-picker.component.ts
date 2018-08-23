@@ -16,8 +16,8 @@ import { ColorWrap, toState } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class AlphaPickerComponent extends ColorWrap implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-alpha-picker';
+    @HostBinding('class.ngx-color-alpha-picker')
+    _hostClass = true;
     /** Pixel value for picker width */
     @Input() width: string | number = 316;
     /** Pixel value for picker height */

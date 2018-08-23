@@ -19,8 +19,8 @@ import { isValidHex } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class SketchComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-sketch';
+    @HostBinding('class.ngx-color-sketch')
+    _hostClass = true;
     /** Remove alpha slider and options from picker */
     @Input() disableAlpha = false;
     /** Hex strings for default colors at bottom of picker */

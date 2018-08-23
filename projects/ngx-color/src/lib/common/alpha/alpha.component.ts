@@ -19,8 +19,8 @@ import { HSLA, RGBA } from '../helpers/color.interfaces';
     encapsulation: ViewEncapsulation.None
 })
 export class AlphaComponent implements OnChanges {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-alpha';
+    @HostBinding('class.ngx-color-alpha')
+    _hostClass = true;
     @Input() hsl: HSLA;
     @Input() rgb: RGBA;
     @Input() pointer: { [key: string]: string };

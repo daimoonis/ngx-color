@@ -9,8 +9,8 @@ import { ColorWrap, isValidHex } from '../../common';
     encapsulation: ViewEncapsulation.None
 })
 export class MaterialComponent extends ColorWrap {
-    @HostBinding('class')
-    _hostClass = 'ngx-color-material';
+    @HostBinding('class.ngx-color-material')
+    _hostClass = true;
     HEXinput: { [key: string]: string } = {
         width: '100%',
         marginTop: '12px',
