@@ -9,7 +9,7 @@
                 <ngx-color-hue [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-hue>
             </div>
             <div class="ngx-color-sketch-alpha">
-                <ngx-color-alpha [radius]="2" [rgb]="rgb" [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-alpha>
+                <ngx-color-alpha *ngIf="disableAlpha === false" [radius]="2" [rgb]="rgb" [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-alpha>
             </div>
         </div>
         <div class="ngx-color-sketch-color">
