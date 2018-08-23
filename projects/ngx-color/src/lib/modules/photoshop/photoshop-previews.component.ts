@@ -6,7 +6,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { RGB } from '../../common';
+import { RGB } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-photoshop-previews',

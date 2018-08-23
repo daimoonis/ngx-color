@@ -5,7 +5,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { ColorWrap, isValidHex } from '../../common';
+import { ColorWrap, isValidHex } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-github',

@@ -4,7 +4,7 @@ import { PhotoshopPreviewsComponent } from './photoshop-previews.component';
 import { PhotoshopButtonComponent } from './photoshop-button.component';
 import { PhotoshopFieldsComponent } from './photoshop-fields.component';
 import { CommonModule } from '@angular/common';
-import { EditableInputModule, HueModule, AlphaModule, SwatchModule, SaturationModule } from '../../common';
+import { EditableInputModule, HueModule, AlphaModule, SwatchModule, SaturationModule } from '../../common/public_api';
 
 @NgModule({
     declarations: [

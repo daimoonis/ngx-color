@@ -8,7 +8,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 
-import { Shape } from '../../common';
+import { Shape } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-sketch-preset-colors',

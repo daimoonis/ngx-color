@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, HostBinding } from '@angular/core';
-import { ColorWrap, isValidHex } from '../../common';
+import { ColorWrap, isValidHex } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-twitter',

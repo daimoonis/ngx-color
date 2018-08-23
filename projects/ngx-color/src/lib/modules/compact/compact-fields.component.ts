@@ -8,7 +8,7 @@ import {
     HostBinding,
 } from '@angular/core';
 
-import { isValidHex, RGBA } from '../../common';
+import { isValidHex, RGBA } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-compact-fields',

@@ -8,7 +8,7 @@ import {
 import {
     ColorWrap,
     getContrastingColor, isValidHex
-} from '../../common';
+} from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-block',

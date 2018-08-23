@@ -25,7 +25,7 @@ import {
     teal,
     yellow,
 } from 'material-colors';
-import { ColorWrap, isValidHex } from '../../common';
+import { ColorWrap, isValidHex } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-circle',

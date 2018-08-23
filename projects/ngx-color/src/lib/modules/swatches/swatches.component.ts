@@ -25,7 +25,7 @@ import {
     teal,
     yellow,
 } from 'material-colors';
-import { ColorWrap } from '../../common';
+import { ColorWrap } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-swatches',

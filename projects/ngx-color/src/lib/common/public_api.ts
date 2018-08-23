@@ -7,6 +7,4 @@ export * from './raised/public_api';
 export * from './saturation/public_api';
 export * from './swatch/public_api';
 export * from './coordinates/public_api';
-export * from './helpers/checkboard';
-export * from './helpers/color';
-export * from './helpers/color.interfaces';
+export * from './helpers/public_api';

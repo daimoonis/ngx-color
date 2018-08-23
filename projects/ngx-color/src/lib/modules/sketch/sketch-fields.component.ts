@@ -8,7 +8,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 
-import { isValidHex, HSLA, RGBA } from '../../common';
+import { isValidHex, HSLA, RGBA } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-sketch-fields',

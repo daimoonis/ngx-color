@@ -8,8 +8,8 @@ import {
 
 import {
     ColorWrap
-} from '../../common';
-import { isValidHex } from '../../common';
+} from '../../common/public_api';
+import { isValidHex } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-sketch',

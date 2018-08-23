@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy, ViewEncapsulation, HostBinding } from '@angular/core';
-import { Shape } from '../../common';
+import { Shape } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-block-swatches',

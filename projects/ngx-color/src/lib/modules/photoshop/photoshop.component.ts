@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {
     ColorWrap,
-} from '../../common';
+} from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-photoshop',

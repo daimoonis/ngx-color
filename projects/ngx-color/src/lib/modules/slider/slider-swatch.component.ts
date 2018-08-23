@@ -8,7 +8,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { HSL } from '../../common';
+import { HSL } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-slider-swatch',

@@ -9,7 +9,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 
-import { getContrastingColor } from '../../common';
+import { getContrastingColor } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-compact-color',

@@ -6,7 +6,7 @@ import {
     ViewEncapsulation,
     HostBinding,
 } from '@angular/core';
-import { ColorWrap, toState } from '../../common';
+import { ColorWrap, toState } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-alpha-picker',

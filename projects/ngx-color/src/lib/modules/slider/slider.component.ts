@@ -6,7 +6,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 
-import { ColorWrap } from '../../common';
+import { ColorWrap } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-slider',

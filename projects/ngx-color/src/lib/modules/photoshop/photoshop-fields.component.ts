@@ -8,7 +8,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 
-import { isValidHex, HSV, RGB } from '../../common';
+import { isValidHex, HSV, RGB } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-photoshop-fields',
