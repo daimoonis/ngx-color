@@ -1,17 +1,17 @@
 .ngx-color-sketch-fields {
-    .ngx-color-sketch-fields-sketch-fields {
+    .ngx-color-sketch-fields-main-fields {
         display: flex;
         padding-top: 4px;
     }
-    .ngx-color-sketch-fields-sketch-double {
+    .ngx-color-sketch-fields-double {
         -webkit-box-flex: 2;
         flex: 2 1 0%;
     }
-    .ngx-color-sketch-fields-sketch-single {
+    .ngx-color-sketch-fields-single {
         flex: 1 1 0%;
         padding-left: 6px;
     }
-    .ngx-color-sketch-fields-sketch-alpha {
+    .ngx-color-sketch-fields-alpha {
         -webkit-box-flex: 1;
         flex: 1 1 0%;
         padding-left: 6px;

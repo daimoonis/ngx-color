@@ -1,37 +1,37 @@
 .ngx-color-sketch {
-    .ngx-color-sketch-sketch-picker {
+    .ngx-color-sketch-picker {
         padding: 10px 10px 0;
         box-sizing: initial;
         background: #fff;
         border-radius: 4px;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 8px 16px rgba(0, 0, 0, .15);
     }
-    .ngx-color-sketch-sketch-saturation {
+    .ngx-color-sketch-saturation {
         width: 100%;
         padding-bottom: 75%;
         position: relative;
         overflow: hidden;
     }
-    .ngx-color-sketch-sketch-controls {
+    .ngx-color-sketch-controls {
         display: flex;
     }
-    .ngx-color-sketch-sketch-sliders {
+    .ngx-color-sketch-sliders {
         padding: 4px 0px;
         -webkit-box-flex: 1;
         flex: 1 1 0%;
     }
-    .ngx-color-sketch-sketch-hue {
+    .ngx-color-sketch-hue {
         position: relative;
         height: 10px;
         overflow: hidden;
     }
-    .ngx-color-sketch-sketch-alpha {
+    .ngx-color-sketch-alpha {
         position: relative;
         height: 10px;
         margin-top: 4px;
         overflow: hidden;
     }
-    .ngx-color-sketch-sketch-color {
+    .ngx-color-sketch-color {
         width: 24px;
         height: 24px;
         position: relative;
@@ -39,7 +39,7 @@
         margin-left: 4px;
         border-radius: 3px;
     }
-    .ngx-color-sketch-sketch-active {
+    .ngx-color-sketch-active {
         position: absolute;
         top: 0px;
         right: 0px;
