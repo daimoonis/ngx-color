@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdoButtonModule } from '@ctrl/ngx-github-buttons';
 
 import {
@@ -20,7 +20,7 @@ import {
 } from '@ngx-color-project/modules';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer.component';
-
+import { MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -29,6 +29,7 @@ import { FooterComponent } from './footer.component';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         MdoButtonModule,
         ColorAlphaModule,
         ColorBlockModule,
@@ -43,6 +44,9 @@ import { FooterComponent } from './footer.component';
         ColorSliderModule,
         ColorSwatchesModule,
         ColorTwitterModule,
+        MatButtonModule,
+        MatIconModule,
+        MatMenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]

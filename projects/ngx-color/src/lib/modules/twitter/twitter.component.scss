@@ -1,87 +1,115 @@
 .ngx-color-twitter {
-    .twitter-picker {
-        background: rgb(255, 255, 255);
-        border: 0px solid rgba(0, 0, 0, 0.25);
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+    .ngx-color-twitter-picker {
         border-radius: 4px;
         position: relative;
         box-sizing: border-box;
     }
-    .triangleShadow {
+    .ngx-color-twitter-triangleShadow {
         width: 0px;
         height: 0px;
         border-style: solid;
-        border-width: 0px 9px 10px;
-        border-color: transparent transparent rgba(0, 0, 0, 0.1);
         position: absolute;
     }
-    .triangle {
+    .ngx-color-twitter-triangle {
         width: 0px;
         height: 0px;
         border-style: solid;
-        border-width: 0px 9px 10px;
-        border-color: transparent transparent rgb(255, 255, 255);
         position: absolute;
     }
-    .hide-triangle>.triangle {
+    .ngx-color-twitter-hide-triangle>.ngx-color-twitter-triangle {
         display: none;
     }
-    .hide-triangle>.triangleShadow {
+    .ngx-color-twitter-hide-triangle>.ngx-color-twitter-triangleShadow {
         display: none;
     }
-    .top-left-triangle>.triangle {
+    .ngx-color-twitter-top-left-triangle>.ngx-color-twitter-triangle {
         top: -10px;
         left: 12px;
+        border-width: 0px 9px 10px;
     }
-    .top-left-triangle>.triangleShadow {
+    .ngx-color-twitter-top-left-triangle>.ngx-color-twitter-triangleShadow {
         top: -11px;
         left: 12px;
+        border-width: 0px 9px 10px;
     }
-    .top-right-triangle>.triangle {
+    .ngx-color-twitter-top-right-triangle>.ngx-color-twitter-triangle {
         top: -10px;
         right: 12px;
+        border-width: 0px 9px 10px;
     }
-    .top-right-triangle>.triangleShadow {
+    .ngx-color-twitter-top-right-triangle>.ngx-color-twitter-triangleShadow {
         top: -11px;
         right: 12px;
+        border-width: 0px 9px 10px;
     }
-    .twitter-body {
+    .ngx-color-twitter-bottom-right-triangle>.ngx-color-twitter-triangle {
+        bottom: -10px;
+        right: 12px;
+        border-width: 10px 9px 0px 9px;
+    }
+    .ngx-color-twitter-bottom-right-triangle>.ngx-color-twitter-triangleShadow {
+        bottom: -11px;
+        right: 12px;
+        border-width: 10px 9px 0px 9px;
+    }
+    .ngx-color-twitter-bottom-left-triangle>.ngx-color-twitter-triangle {
+        bottom: -10px;
+        left: 12px;
+        border-width: 10px 9px 0px 9px;
+    }
+    .ngx-color-twitter-bottom-left-triangle>.ngx-color-twitter-triangleShadow {
+        bottom: -11px;
+        left: 12px;
+        border-width: 10px 9px 0px 9px;
+    }
+    .ngx-color-twitter-body {
         padding: 15px 9px 9px 15px;
     }
-    .twitter-swatch {
+    .ngx-color-twitter-swatch {
         width: 30px;
         height: 30px;
         display: inline-block;
         margin: 0 6px 0 0;
     }
-    .twitter-hash {
-        background: rgb(240, 240, 240);
+    .ngx-color-twitter-hash {
         height: 30px;
         width: 30px;
         border-radius: 4px 0px 0px 4px;
-        color: rgb(152, 161, 164);
-        margin-left: -3px;
+        vertical-align: top;
         display: inline-block;
     }
-    .twitter-hash>div {
-        position: absolute;
+    .ngx-color-twitter-hash>div {
         align-items: center;
         justify-content: center;
         height: 30px;
         width: 30px;
         display: flex;
     }
-    .twitter-input {
+    .ngx-color-twitter-input {
         position: relative;
         display: inline-block;
-        margin-top: -6px;
-        font-size: 10px;
-        height: 27px;
+        height: 30px;
         padding: 0;
-        position: relative;
-        top: 6px;
         vertical-align: top;
         width: 108px;
-        margin-left: -4px;
+        .ngx-color-editable-input {
+            height: 100%;
+            .ngx-color-editable-input-value {
+                border-radius: 0px 4px 4px 0px;
+                box-sizing: border-box;
+                display: inline-block;
+                height: 100%;
+                padding: 0;
+                padding-left: 6px;
+            }
+        }
+    }
+    .ngx-color-swatch {
+        .ngx-color-swatch-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            font-size: 0;
+        }
     }
 }

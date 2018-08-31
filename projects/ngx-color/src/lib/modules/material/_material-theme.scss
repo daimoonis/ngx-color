@@ -1,0 +1,18 @@
+@mixin ngx-color-material-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-material {
+        .ngx-color-material-picker {
+            background-color: mat-color($background, card);
+            color: mat-color($foreground, text);
+            @include mat-elevation(8);
+        }
+        .ngx-color-editable-input {
+            &.ngx-color-material-input-rgb {
+                .ngx-color-editable-input-value {
+                    border-bottom: 1px solid map-get($mat-grey, 300);
+                }
+            }
+        }
+    }
+}

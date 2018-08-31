@@ -1,16 +1,18 @@
-<ngx-color-raised>
-    <div class="material-picker {{ className }}">
-        <ngx-color-editable-input label="hex" [value]="hex" (onChange)="handleValueChange($event)" [style]="{input: HEXinput, label: HEXlabel}"></ngx-color-editable-input>
-        <div class="material-split">
-            <div class="material-third">
-                <ngx-color-editable-input label="r" [value]="rgb.r" [style]="{ input: RGBinput, label: RGBlabel }" (onChange)="handleInputChange($event)"></ngx-color-editable-input>
-            </div>
-            <div class="material-third">
-                <ngx-color-editable-input label="g" [value]="rgb.g" [style]="{ input: RGBinput, label: RGBlabel }" (onChange)="handleInputChange($event)"></ngx-color-editable-input>
-            </div>
-            <div class="material-third">
-                <ngx-color-editable-input label="b" [value]="rgb.b" [style]="{ input: RGBinput, label: RGBlabel }" (onChange)="handleInputChange($event)"></ngx-color-editable-input>
-            </div>
+<div class="ngx-color-material-picker">
+    <ngx-color-editable-input class="ngx-color-material-input-hex" label="hex" [style]="{ input: HEXinput }" [value]="_color.toHexString()"
+        (onChange)="handleValueChange($event)"></ngx-color-editable-input>
+    <div class="ngx-color-material-split">
+        <div class="ngx-color-material-third">
+            <ngx-color-editable-input class="ngx-color-material-input-rgb" label="r" [value]="_color.toRgb().r"
+                (onChange)="handleInputChange($event)"></ngx-color-editable-input>
+        </div>
+        <div class="ngx-color-material-third">
+            <ngx-color-editable-input class="ngx-color-material-input-rgb" label="g" [value]="_color.toRgb().g"
+                (onChange)="handleInputChange($event)"></ngx-color-editable-input>
+        </div>
+        <div class="ngx-color-material-third">
+            <ngx-color-editable-input class="ngx-color-material-input-rgb" label="b" [value]="_color.toRgb().b"
+                (onChange)="handleInputChange($event)"></ngx-color-editable-input>
         </div>
     </div>
-</ngx-color-raised>
+</div>

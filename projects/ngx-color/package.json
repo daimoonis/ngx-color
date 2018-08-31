@@ -9,7 +9,8 @@
     "peerDependencies": {
         "@angular/common": "^6.0.1",
         "@angular/core": "^6.0.1",
-        "material-colors": "^1.2.6",
-        "@ctrl/tinycolor": "^2.2.0"
+        "@angular/material": "^6.0.1",
+        "@ctrl/tinycolor": "^2.2.0",
+        "material-colors": "^1.2.6"
     }
 }

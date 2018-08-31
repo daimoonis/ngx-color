@@ -1,0 +1,11 @@
+@mixin ngx-color-swatches-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-swatches {
+        .ngx-color-swatches-picker {
+            background-color: mat-color($background, card);
+            color: mat-color($foreground, text);
+            @include mat-elevation(8);
+        }
+    }
+}

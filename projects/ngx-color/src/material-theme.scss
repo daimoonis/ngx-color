@@ -1,0 +1,7 @@
+@import './lib/common/material-theme';
+@import './lib/modules/material-theme';
+
+@mixin ngx-color-theme($theme) {
+    @include ngx-color-common-theme($theme);
+    @include ngx-color-modules-theme($theme);
+}

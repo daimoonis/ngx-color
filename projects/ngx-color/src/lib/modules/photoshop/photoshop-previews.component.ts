@@ -2,11 +2,10 @@ import {
     ChangeDetectionStrategy,
     Component,
     Input,
-    OnChanges,
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { RGB } from '../../common/public_api';
+import { NgxColor } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-photoshop-previews',
@@ -15,14 +14,9 @@ import { RGB } from '../../common/public_api';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class PhotoshopPreviewsComponent implements OnChanges {
+export class PhotoshopPreviewsComponent {
     @HostBinding('class.ngx-color-photoshop-previews')
     _hostClass = true;
-    @Input() rgb: RGB;
+    @Input() color: NgxColor;
     @Input() currentColor = '';
-    backgroundNew = '';
-
-    ngOnChanges() {
-        this.backgroundNew = `rgb(${this.rgb.r},${this.rgb.g}, ${this.rgb.b})`;
-    }
 }

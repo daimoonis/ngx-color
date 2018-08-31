@@ -4,12 +4,11 @@ import {
     Input,
     HostBinding,
     ViewEncapsulation,
+    ChangeDetectorRef,
 } from '@angular/core';
-
-import {
-    ColorWrap,
-    isValidHex
-} from '../../common/public_api';
+import { ColorWrap, parseColors, NgxColor } from '@ngx-color-project/common';
+import { ColorInput } from '@ctrl/tinycolor';
+import { isNil } from 'lodash';
 
 @Component({
     selector: 'ngx-color-compact',
@@ -19,10 +18,7 @@ import {
     encapsulation: ViewEncapsulation.None
 })
 export class CompactComponent extends ColorWrap {
-    @HostBinding('class.ngx-color-compact')
-    _hostClass = true;
-    /** Color squares to display */
-    @Input() colors = [
+    public static readonly DEFAULT_COLORS = [
         '#4D4D4D',
         '#999999',
         '#FFFFFF',
@@ -61,15 +57,28 @@ export class CompactComponent extends ColorWrap {
         '#AB149E',
     ];
 
-    constructor() {
-        super();
+    @HostBinding('class.ngx-color-compact')
+    _hostClass = true;
+    _colors: NgxColor[];
+    /** Color squares to display */
+    @Input()
+    get colors(): ColorInput[] {
+        return this._colors;
     }
-    handleBlockChange({ hex, $event }) {
-        if (isValidHex(hex)) {
-            this.handleChange({ hex, source: 'hex' }, $event);
-        }
+    set colors(colors: ColorInput[]) {
+        this._colors = !isNil(colors) ? parseColors(colors) : parseColors(CompactComponent.DEFAULT_COLORS);
     }
-    handleValueChange({ data, $event }) {
-        this.handleChange(data, $event);
+
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
+        this._colors = parseColors(CompactComponent.DEFAULT_COLORS);
+    }
+
+    handleBlockChange({ color, $event }) {
+        this.handleChange(color, $event);
+    }
+
+    handleValueChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
 }

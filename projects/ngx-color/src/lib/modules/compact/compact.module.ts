@@ -3,15 +3,15 @@ import { CompactComponent } from './compact.component';
 import { CompactColorComponent } from './compact-color.component';
 import { CompactFieldsComponent } from './compact-fields.component';
 import { CommonModule } from '@angular/common';
-import { EditableInputModule, SwatchModule, RaisedModule } from '../../common/public_api';
+import { EditableInputModule, SwatchModule, RaisedModule } from '@ngx-color-project/common';
 
 @NgModule({
     declarations: [
         CompactComponent,
         CompactColorComponent,
-        CompactFieldsComponent,
+        CompactFieldsComponent
     ],
     exports: [CompactComponent, CompactColorComponent, CompactFieldsComponent],
-    imports: [CommonModule, EditableInputModule, SwatchModule, RaisedModule],
+    imports: [CommonModule, EditableInputModule, SwatchModule, RaisedModule]
 })
 export class ColorCompactModule { }

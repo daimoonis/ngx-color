@@ -1,0 +1,22 @@
+@import './sketch/sketch-theme';
+@import './twitter/twitter-theme';
+@import './photoshop/photoshop-theme';
+@import './chrome/chrome-theme';
+@import './github/github-theme';
+@import './swatches/swatches-theme';
+@import './slider/slider-theme';
+@import './material/material-theme';
+@import './compact/compact-theme';
+@import './block/block-theme';
+@mixin ngx-color-modules-theme($theme) {
+    @include ngx-color-sketch-theme($theme);
+    @include ngx-color-twitter-theme($theme);
+    @include ngx-color-photoshop-theme($theme);
+    @include ngx-color-chrome-theme($theme);
+    @include ngx-color-github-theme($theme);
+    @include ngx-color-swatches-theme($theme);
+    @include ngx-color-slider-theme($theme);
+    @include ngx-color-material-theme($theme);
+    @include ngx-color-compact-theme($theme);
+    @include ngx-color-block-theme($theme);
+}

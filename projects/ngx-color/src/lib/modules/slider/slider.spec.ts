@@ -11,23 +11,14 @@ describe('SliderComponent', () => {
             imports: [ColorSliderModule],
         }).compileComponents();
     }));
-    it(`should apply className to root element`, async(() => {
-        const fixture = TestBed.createComponent(SliderTestApp);
-        const testComponent = fixture.debugElement.componentInstance;
-        testComponent.className = 'classy';
-        fixture.detectChanges();
-        const divDebugElement = fixture.debugElement.query(By.css('.slider-picker'));
-        expect(divDebugElement.nativeElement.classList.contains('classy')).toBe(true);
-    }));
 });
 
 @Component({
     selector: 'ngx-color-test-app',
     template: `
-  <ngx-color-slider [className]="className">
+  <ngx-color-slider>
   </ngx-color-slider>
   `,
 })
 class SliderTestApp {
-    className = '';
 }

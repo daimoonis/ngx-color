@@ -1,57 +1,45 @@
 .ngx-color-photoshop {
-    .photoshop-picker {
-        background: rgb(220, 220, 220);
+    .ngx-color-photoshop-picker {
         border-radius: 4px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px;
         box-sizing: initial;
         width: 513px;
     }
-    .photoshop-head {
-        background-image: linear-gradient( -180deg, rgb(240, 240, 240) 0%, rgb(212, 212, 212) 100%);
-        border-bottom: 1px solid rgb(177, 177, 177);
-        box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.02) 0px -1px 0px 0px inset;
+    .ngx-color-photoshop-head {
         height: 23px;
-        line-height: 24px;
+        line-height: 23px;
         border-radius: 4px 4px 0px 0px;
-        font-size: 13px;
-        color: rgb(77, 77, 77);
+        font-size: 0.9em;
         text-align: center;
     }
-    .photoshop-body {
-        padding: 15px 15px 0px;
+    .ngx-color-photoshop-body {
+        padding: 15px;
         display: flex;
     }
-    .photoshop-saturation {
+    .ngx-color-photoshop-saturation {
         width: 256px;
         height: 256px;
         position: relative;
-        border-width: 2px;
-        border-style: solid;
-        border-color: rgb(179, 179, 179) rgb(179, 179, 179) rgb(240, 240, 240);
         border-image: initial;
         overflow: hidden;
     }
-    .photoshop-hue {
+    .ngx-color-photoshop-hue {
         position: relative;
         height: 256px;
         width: 23px;
         margin-left: 10px;
-        border-width: 2px;
-        border-style: solid;
-        border-color: rgb(179, 179, 179) rgb(179, 179, 179) rgb(240, 240, 240);
         border-image: initial;
     }
-    .photoshop-controls {
+    .ngx-color-photoshop-controls {
         width: 180px;
         margin-left: 10px;
     }
-    .photoshop-top {
+    .ngx-color-photoshop-top {
         display: flex;
     }
-    .photoshop-previews {
+    .ngx-color-photoshop-previews {
         width: 60px;
     }
-    .photoshop-actions {
+    .ngx-color-photoshop-actions {
         -webkit-box-flex: 1;
         flex: 1 1 0%;
         margin-left: 20px;

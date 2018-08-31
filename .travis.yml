@@ -4,18 +4,16 @@ node_js: 10
 addons:
   chrome: stable
 script:
-  - npm run lint
-  - npm run test:ci
-  - npm run build
-  - npm run bundlesize
+  - npm run lint:library
+  - npm run test:library:ci
+  - npm run build:library
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - npm run travis-deploy-once "npm run semantic-release"
-  - npm run ghpages
+  - npm run build:app
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: dist
+  local_dir: dist/ngx-color-app
   github_token: $GH_TOKEN
   on:
     branch: master

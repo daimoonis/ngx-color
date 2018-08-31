@@ -4,6 +4,9 @@ $container-max-widths: (sm: 540px, md: 810px, lg: 810px, xl: 810px);
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
+button:focus {
+    outline: none;
+}
 @import '~bootstrap/scss/type';
 // @import "~bootstrap/scss/images";
 // @import "~bootstrap/scss/code";
@@ -35,13 +38,60 @@ $container-max-widths: (sm: 540px, md: 810px, lg: 810px, xl: 810px);
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/print';
 
+@import '../projects/ngx-color/src/material-theme';
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+.ngx-color-light-theme {
+    $candy-app-primary: mat-palette($mat-indigo);
+    $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+    $candy-app-warn: mat-palette($mat-red);
+    $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+    @include angular-material-theme($candy-app-theme);
+    @include ngx-color-theme($candy-app-theme);
+    $background: map-get($candy-app-theme, background);
+    $foreground: map-get($candy-app-theme, foreground);
+    &.primary-bg-color, .primary-bg-color {
+        background-color: mat-color($background, background);
+    }
+    &.primary-text-color, .primary-text-color {
+        color: mat-color($foreground, text);
+    }
+    .cover {
+        border-bottom: 1px solid mat-color($foreground, text);
+    }
+}
+.ngx-color-dark-theme {
+    $candy-app-primary: mat-palette($mat-indigo);
+    $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+    $candy-app-warn: mat-palette($mat-red);
+    $candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+    @include angular-material-theme($candy-app-theme);
+    @include ngx-color-theme($candy-app-theme);
+    $background: map-get($candy-app-theme, background);
+    $foreground: map-get($candy-app-theme, foreground);
+    &.primary-bg-color, .primary-bg-color {
+        background-color: mat-color($background, background);
+    }
+    &.primary-text-color, .primary-text-color {
+        color: mat-color($foreground, text);
+    }
+    .cover {
+        border-bottom: 1px solid mat-color($foreground, text);
+    }
+}
+
 html {
-  touch-action: manipulation;
+    touch-action: manipulation;
 }
-html,
-body {
-  background: #eee;
+
+app-root {
+    display: block;
 }
+
 .home {
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }

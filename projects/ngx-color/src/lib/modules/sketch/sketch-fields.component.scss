@@ -1,20 +1,35 @@
 .ngx-color-sketch-fields {
-    .ngx-color-sketch-fields-main-fields {
+    .ngx-color-sketch-fields-all-fields {
         display: flex;
         flex: 1 1 0%;
         padding-top: 4px;
     }
-    .ngx-color-sketch-fields-double {
+    .ngx-color-sketch-fields-sketch-double {
         -webkit-box-flex: 2;
         flex: 2 1 0%;
     }
-    .ngx-color-sketch-fields-single {
+    .ngx-color-sketch-fields-sketch-single {
         flex: 1 1 0%;
         padding-left: 6px;
     }
-    .ngx-color-sketch-fields-alpha {
+    .ngx-color-sketch-fields-sketch-alpha {
         -webkit-box-flex: 1;
         flex: 1 1 0%;
         padding-left: 6px;
+    }
+    .ngx-color-editable-input {
+        .ngx-color-editable-input-value {
+            padding: 4px 10% 3px;
+            border: none;
+            font-size: 0.7em;
+        }
+        .ngx-color-editable-input-label {
+            display: block;
+            text-align: center;
+            font-size: 0.7em;
+            padding-top: 3px;
+            padding-bottom: 4px;
+            text-transform: capitalize;
+        }
     }
 }

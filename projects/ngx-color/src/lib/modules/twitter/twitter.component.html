@@ -1,15 +1,15 @@
-<div class="twitter-picker {{ triangle }}-triangle {{ className }}" [style.width.px]="width">
-    <div class="triangleShadow"></div>
-    <div class="triangle"></div>
-    <div class="twitter-body">
-        <div class="twitter-swatch" *ngFor="let color of colors">
-            <ngx-color-swatch [color]="color" [style]="swatchStyle" [focusStyle]="focus(color)" (onClick)="handleBlockChange($event)"></ngx-color-swatch>
+<div class="ngx-color-twitter-picker ngx-color-twitter-{{ triangle }}-triangle" [style.width.px]="width">
+    <div class="ngx-color-twitter-triangleShadow"></div>
+    <div class="ngx-color-twitter-triangle"></div>
+    <div class="ngx-color-twitter-body">
+        <div class="ngx-color-twitter-swatch" *ngFor="let color of colors">
+            <ngx-color-swatch [color]="color" [focusStyle]="focus(color)" (onClick)="handleBlockChange($event)"></ngx-color-swatch>
         </div>
-        <div class="twitter-hash">
+        <div class="ngx-color-twitter-hash">
             <div>#</div>
         </div>
-        <div class="twitter-input">
-            <ngx-color-editable-input [style]="{ input: input }" [value]="hex.replace('#', '')" (onChange)="handleValueChange($event)"></ngx-color-editable-input>
+        <div class="ngx-color-twitter-input">
+            <ngx-color-editable-input [value]="_color.toHexString().replace('#', '')" (onChange)="_debounceValueChange.next($event)"></ngx-color-editable-input>
         </div>
     </div>
 </div>

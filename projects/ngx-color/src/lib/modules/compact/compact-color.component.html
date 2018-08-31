@@ -1,6 +1,6 @@
-<div class="compact-color">
-    <ngx-color-swatch class="swatch" [color]="color" [style]="swatchStyle" [focusStyle]="swatchFocus" (onClick)="handleClick($event)"
+<div class="ngx-color-compact-color-wrap">
+    <ngx-color-swatch [color]="color" [style]="swatchStyle" [focusStyle]="swatchFocus" (onClick)="handleClick($event)"
         (onHover)="onSwatchHover.emit($event)">
-        <div class="compact-dot" [class.active]="active" [style.background]="getContrastingColor(color)"></div>
+        <div class="ngx-color-compact-color-dot" [class.active]="active" [style.background]="color.getContrastingColor()"></div>
     </ngx-color-swatch>
 </div>

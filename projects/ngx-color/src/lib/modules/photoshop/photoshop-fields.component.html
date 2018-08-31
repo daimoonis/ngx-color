@@ -1,16 +1,17 @@
-<div class="photoshop-fields">
-    <ngx-color-editable-input [value]="round(hsv.h)" label="h" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
-    <ngx-color-editable-input [value]="round(hsv.s * 100)" label="s" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
-    <ngx-color-editable-input [value]="round(hsv.v * 100)" label="v" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
-    <div class="photoshop-divider"></div>
-    <ngx-color-editable-input [value]="rgb.r" label="r" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
-    <ngx-color-editable-input [value]="rgb.g" label="g" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
-    <ngx-color-editable-input [value]="rgb.b" label="b" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
-    <div class="photoshop-divider"></div>
-    <ngx-color-editable-input [value]="hex.replace('#', '')" label="#" (onChange)="handleValueChange($event)" [style]="{input: HEXinput, wrap: HEXwrap, label: HEXlabel}"></ngx-color-editable-input>
-    <div class="photoshop-field-symbols">
-        <div class="photoshop-symbol">°</div>
-        <div class="photoshop-symbol">%</div>
-        <div class="photoshop-symbol">%</div>
+<div class="ngx-color-photoshop-fields-fields">
+    <ngx-color-editable-input [value]="round(color.toHsv().h)" label="h" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
+    <ngx-color-editable-input [value]="round(color.toHsv().s * 100)" label="s" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
+    <ngx-color-editable-input [value]="round(color.toHsv().v * 100)" label="v" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
+    <div class="ngx-color-photoshop-fields-divider"></div>
+    <ngx-color-editable-input [value]="color.toRgb().r" label="r" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
+    <ngx-color-editable-input [value]="color.toRgb().g" label="g" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
+    <ngx-color-editable-input [value]="color.toRgb().b" label="b" (onChange)="handleValueChange($event)" [style]="{input: RGBinput, wrap: RGBwrap, label: RGBlabel}"></ngx-color-editable-input>
+    <div class="ngx-color-photoshop-fields-divider"></div>
+    <ngx-color-editable-input [value]="color.toHexString().replace('#', '')" label="#" (onChange)="handleValueChange($event)"
+        [style]="{input: HEXinput, wrap: HEXwrap, label: HEXlabel}"></ngx-color-editable-input>
+    <div class="ngx-color-photoshop-fields-field-symbols">
+        <div class="ngx-color-photoshop-fields-symbol">°</div>
+        <div class="ngx-color-photoshop-fields-symbol">%</div>
+        <div class="ngx-color-photoshop-fields-symbol">%</div>
     </div>
 </div>

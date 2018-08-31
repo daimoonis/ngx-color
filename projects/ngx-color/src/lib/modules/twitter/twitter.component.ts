@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, HostBinding } from '@angular/core';
-import { ColorWrap, isValidHex } from '../../common/public_api';
+import {
+    ChangeDetectionStrategy, Component, Input, ViewEncapsulation,
+    HostBinding, ChangeDetectorRef, OnInit, OnDestroy
+} from '@angular/core';
+import { ColorWrap, parseColors, NgxColor } from '@ngx-color-project/common';
+import { ColorInput } from '@ctrl/tinycolor';
+import { isNil } from 'lodash';
+import { Subject } from 'rxjs';
+import { takeUntil, debounceTime } from 'rxjs/operators';
 
 @Component({
     selector: 'ngx-color-twitter',
@@ -8,13 +15,8 @@ import { ColorWrap, isValidHex } from '../../common/public_api';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class TwitterComponent extends ColorWrap {
-    @HostBinding('class.ngx-color-twitter')
-    _hostClass = true;
-    /** Pixel value for picker width */
-    @Input() width: string | number = 276;
-    /** Color squares to display */
-    @Input() colors = [
+export class TwitterComponent extends ColorWrap implements OnInit, OnDestroy {
+    public static readonly DEFAULT_COLORS = [
         '#FF6900',
         '#FCB900',
         '#7BDCB5',
@@ -24,46 +26,47 @@ export class TwitterComponent extends ColorWrap {
         '#ABB8C3',
         '#EB144C',
         '#F78DA7',
-        '#9900EF',
+        '#9900EF'
     ];
+    @HostBinding('class.ngx-color-twitter')
+    _hostClass = true;
+    /** Pixel value for picker width */
+    @Input() width: string | number = 276;
+    _colors: NgxColor[];
+    /** Color squares to display */
+    @Input()
+    get colors(): ColorInput[] {
+        return this._colors;
+    }
+    set colors(colors: ColorInput[]) {
+        this._colors = !isNil(colors) ? parseColors(colors) : parseColors(TwitterComponent.DEFAULT_COLORS);
+    }
     @Input() triangle: 'hide' | 'top-left' | 'top-right' | 'bottom-right' = 'top-left';
 
-    swatchStyle: { [key: string]: string } = {
-        width: '30px',
-        height: '30px',
-        borderRadius: '4px',
-        fontSize: '0',
-    };
-    input: { [key: string]: string } = {
-        borderRadius: '4px',
-        borderBottomLeftRadius: '0',
-        borderTopLeftRadius: '0',
-        border: '1px solid #e6ecf0',
-        boxSizing: 'border-box',
-        display: 'inline',
-        fontSize: '14px',
-        height: '30px',
-        padding: '0',
-        paddingLeft: '6px',
-        width: '100%',
-        color: '#657786',
-    };
+    _destroyed = new Subject<void>();
+    _debounceValueChange = new Subject<{ data: string, $event: Event }>();
 
-    constructor() {
-        super();
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
+        this._colors = parseColors(TwitterComponent.DEFAULT_COLORS);
     }
 
     focus(color: string) {
         return { boxShadow: `0 0 4px ${color}` };
     }
 
-    handleBlockChange({ hex, $event }) {
-        if (isValidHex(hex)) {
-            this.handleChange({ hex, source: 'hex' }, $event);
-        }
+    handleBlockChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
 
-    handleValueChange({ data, $event }) {
-        this.handleBlockChange({ hex: data, $event });
+    ngOnInit() {
+        this._debounceValueChange.pipe(debounceTime(400), takeUntil(this._destroyed)).subscribe((d) => {
+            this.handleChange(new NgxColor('#'.concat(d.data)));
+        });
+    }
+
+    ngOnDestroy() {
+        this._destroyed.next();
+        this._destroyed.complete();
     }
 }

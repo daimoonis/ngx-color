@@ -3,13 +3,16 @@ import {
     Component,
     EventEmitter,
     Input,
-    OnChanges,
     Output,
     HostBinding,
     ViewEncapsulation,
+    OnChanges
 } from '@angular/core';
 
-import { HSLA, HSLAsource } from '../helpers/color.interfaces';
+import { NgxColor } from '../helpers/ngx-color';
+import { HSLA } from '../helpers/public_api';
+
+export type HueDirection = 'horizontal' | 'vertical';
 
 @Component({
     selector: 'ngx-color-hue',
@@ -21,27 +24,33 @@ import { HSLA, HSLAsource } from '../helpers/color.interfaces';
 export class HueComponent implements OnChanges {
     @HostBinding('class.ngx-color-hue')
     _hostClass = true;
-    @Input() hsl: HSLA;
+    private _hue: number;
+    @Input() color: NgxColor;
     @Input() pointer: { [key: string]: string };
     @Input() radius: number;
     @Input() shadow: string;
     @Input() hidePointer = false;
-    @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
-    @Output() onChange = new EventEmitter<{ data: HSLAsource; $event: Event }>();
+    @Input() direction: HueDirection = 'horizontal';
+    @Output() onChange = new EventEmitter<NgxColor>();
     left = '0px';
     top = '';
 
-    ngOnChanges() {
-        if (this.direction === 'horizontal') {
-            this.left = `${this.hsl.h * 100 / 360}%`;
+    private _setPosition(direction: HueDirection, hue: number) {
+        if (direction === 'horizontal') {
+            this.left = `${hue * 100 / 360}%`;
         } else {
-            this.top = `${-(this.hsl.h * 100 / 360) + 100}%`;
+            this.top = `${-(hue * 100 / 360) + 100}%`;
         }
     }
+
+    ngOnChanges() {
+        this._hue = this.color.toHsl().h;
+        this._setPosition(this.direction, this._hue);
+    }
+
     handleChange({ top, left, containerHeight, containerWidth, $event }) {
-        let data: HSLAsource;
+        let h;
         if (this.direction === 'vertical') {
-            let h;
             if (top < 0) {
                 h = 359;
             } else if (top > containerHeight) {
@@ -50,18 +59,7 @@ export class HueComponent implements OnChanges {
                 const percent = -(top * 100 / containerHeight) + 100;
                 h = 360 * percent / 100;
             }
-
-            if (this.hsl.h !== h) {
-                data = {
-                    h,
-                    s: this.hsl.s,
-                    l: this.hsl.l,
-                    a: this.hsl.a,
-                    source: 'rgb',
-                };
-            }
         } else {
-            let h;
             if (left < 0) {
                 h = 0;
             } else if (left > containerWidth) {
@@ -70,20 +68,11 @@ export class HueComponent implements OnChanges {
                 const percent = left * 100 / containerWidth;
                 h = 360 * percent / 100;
             }
-
-            if (this.hsl.h !== h) {
-                data = {
-                    h,
-                    s: this.hsl.s,
-                    l: this.hsl.l,
-                    a: this.hsl.a,
-                    source: 'rgb',
-                };
-            }
         }
-        if (!data) {
+        if (!h || this._hue === h) {
             return null;
         }
-        this.onChange.emit({ data, $event });
+        this._setPosition(this.direction, h);
+        this.onChange.emit(new NgxColor({ a: this.color.toRgb().a, h: h, l: 0.5, s: 1 }));
     }
 }

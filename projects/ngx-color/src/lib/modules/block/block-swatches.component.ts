@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy, ViewEncapsulation, HostBinding } from '@angular/core';
-import { Shape } from '../../common/public_api';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy, ViewEncapsulation, HostBinding } from '@angular/core';
+import { ColorEvent, NgxColor } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-block-swatches',
@@ -8,28 +8,15 @@ import { Shape } from '../../common/public_api';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class BlockSwatchesComponent implements OnInit {
+export class BlockSwatchesComponent {
     @HostBinding('class.ngx-color-block-swatches')
     _hostClass = true;
-    @Input() colors: string[] | Shape[];
-    @Output() onClick = new EventEmitter<any>();
-    @Output() onSwatchHover = new EventEmitter<any>();
-    swatchStyle: { [key: string]: string };
+    @Input() colors: NgxColor[];
+    @Output() onClick = new EventEmitter<ColorEvent>();
+    @Output() onSwatchHover = new EventEmitter<ColorEvent>();
 
-    constructor() { }
-
-    ngOnInit() {
-        this.swatchStyle = {
-            width: '22px',
-            height: '22px',
-            float: 'left',
-            marginRight: '10px',
-            marginBottom: '10px',
-            borderRadius: '4px',
-        };
-    }
-    handleClick({ hex, $event }) {
-        this.onClick.emit({ hex, $event });
+    handleClick({ color, $event }) {
+        this.onClick.emit({ color, $event });
     }
     focusStyle(c) {
         return {

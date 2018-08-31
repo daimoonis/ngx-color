@@ -7,7 +7,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { HSL } from '../../common/public_api';
+import { NgxColor, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-slider-swatches',
@@ -19,18 +19,18 @@ import { HSL } from '../../common/public_api';
 export class SliderSwatchesComponent {
     @HostBinding('class.ngx-color-slider-swatches')
     _hostClass = true;
-    @Input() hsl: HSL;
-    @Output() onClick = new EventEmitter<any>();
-    @Output() onSwatchHover = new EventEmitter<any>();
-    swatchStyle: { [key: string]: string };
+    @Input() color: NgxColor;
+    @Output() onClick = new EventEmitter<ColorEvent>();
 
     active(l: number, s: number) {
+        const hsl = this.color.toHsl();
         return (
-            Math.round(this.hsl.l * 100) / 100 === l &&
-            Math.round(this.hsl.s * 100) / 100 === s
+            Math.round(hsl.l * 100) / 100 === l &&
+            Math.round(hsl.s * 100) / 100 === s
         );
     }
-    handleClick({ data, $event }) {
-        this.onClick.emit({ data, $event });
+
+    handleClick({ color, $event }) {
+        this.onClick.emit({ color, $event });
     }
 }

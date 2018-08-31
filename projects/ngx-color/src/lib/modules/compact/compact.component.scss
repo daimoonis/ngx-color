@@ -1,15 +1,12 @@
 .ngx-color-compact {
-    .color-compact {
-        background: #f6f6f6;
-        radius: 4px;
-    }
-    .compact-picker {
+    .ngx-color-compact-picker {
+        border-radius: 4px;
         padding-top: 5px;
         padding-left: 5px;
         box-sizing: border-box;
         width: 245px;
-    }
-    .compact-clear {
-        clear: both;
+        .ngx-color-compact-picker-colors:after {
+            clear: both;
+        }
     }
 }

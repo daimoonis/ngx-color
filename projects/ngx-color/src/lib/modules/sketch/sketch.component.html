@@ -1,26 +1,26 @@
-<div class="ngx-color-sketch-picker {{ className }}" [style.width]="width">
+<div class="ngx-color-sketch-picker">
     <div class="ngx-color-sketch-saturation">
-        <ngx-color-saturation [hsl]="hsl" [hsv]="hsv" (onChange)="handleValueChange($event)">
+        <ngx-color-saturation [color]="_color" (onChange)="handleValueChange($event)">
         </ngx-color-saturation>
     </div>
     <div class="ngx-color-sketch-controls">
         <div class="ngx-color-sketch-sliders">
             <div class="ngx-color-sketch-hue">
-                <ngx-color-hue [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-hue>
+                <ngx-color-hue [color]="_color" (onChange)="handleChange($event)"></ngx-color-hue>
             </div>
             <div class="ngx-color-sketch-alpha">
-                <ngx-color-alpha *ngIf="disableAlpha === false" [radius]="2" [rgb]="rgb" [hsl]="hsl" (onChange)="handleValueChange($event)"></ngx-color-alpha>
+                <ngx-color-alpha [radius]="2" [color]="_color" (onChange)="handleChange($event)"></ngx-color-alpha>
             </div>
         </div>
         <div class="ngx-color-sketch-color">
             <ngx-color-checkboard></ngx-color-checkboard>
-            <div class="ngx-color-sketch-active" [style.background]="activeBackground"></div>
+            <div class="ngx-color-sketch-active" [style.background]="_color.toRgbString()"></div>
         </div>
     </div>
     <div class="ngx-color-sketch-controls">
-        <ngx-color-sketch-fields [rgb]="rgb" [hsl]="hsl" [hex]="hex" [disableAlpha]="disableAlpha" (onChange)="handleValueChange($event)"></ngx-color-sketch-fields>
+        <ngx-color-sketch-fields [color]="_color" [disableAlpha]="disableAlpha" (onChange)="handleValueChange($event)"></ngx-color-sketch-fields>
     </div>
     <div class="ngx-color-sketch-controls">
-        <ngx-color-sketch-preset-colors [colors]="presetColors" (onClick)="handleBlockChange($event)" (onSwatchHover)="onSwatchHover.emit($event)"></ngx-color-sketch-preset-colors>
+        <ngx-color-sketch-preset-colors [colors]="_presetColors" (onClick)="handleBlockChange($event)" (onSwatchHover)="onSwatchHover.emit($event)"></ngx-color-sketch-preset-colors>
     </div>
 </div>

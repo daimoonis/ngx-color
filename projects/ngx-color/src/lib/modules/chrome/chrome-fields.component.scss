@@ -1,35 +1,51 @@
 .ngx-color-chrome-fields {
-    .chrome-wrap {
+    .ngx-color-chrome-fields-wrap {
         padding-top: 16px;
         display: flex;
     }
-    .chrome-fields {
+    .ngx-color-chrome-fields-fields {
         flex: 1;
         display: flex;
         margin-left: -6px;
     }
-    .chrome-field {
+    .ngx-color-chrome-fields-field {
         padding-left: 6px;
         width: 100%;
     }
-    .chrome-toggle {
+    .ngx-color-chrome-fields-toggle {
         width: 32px;
         text-align: right;
         position: relative;
     }
-    .chrome-icon {
+    .ngx-color-chrome-fields-icon {
         margin-right: -4px;
         margin-top: 12px;
         cursor: pointer;
         position: relative;
     }
-    .chrome-toggle-svg {
+    .ngx-color-chrome-fields-toggle-svg {
         width: 24px;
         height: 24px;
         border: 1px transparent solid;
         border-radius: 5px;
     }
-    .chrome-toggle-svg:hover {
-        background: #eee;
+    .ngx-color-editable-input {
+        .ngx-color-editable-input-value {
+            box-shadow: inset 0 0 0 1px #dadada;
+            height: 21px;
+            text-align: center;
+            padding: 4px 10% 3px;
+            border: none;
+            font-size: 0.7em;
+        }
+        .ngx-color-editable-input-label {
+            display: block;
+            text-align: center;
+            font-size: 0.7em;
+            line-height: 0.7em;
+            margin-top: 12px;
+            padding-bottom: 4px;
+            text-transform: uppercase;
+        }
     }
 }

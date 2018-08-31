@@ -5,6 +5,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
     declarations: [CheckboardComponent],
     exports: [CheckboardComponent],
-    imports: [CommonModule],
+    imports: [CommonModule]
 })
 export class CheckboardModule { }

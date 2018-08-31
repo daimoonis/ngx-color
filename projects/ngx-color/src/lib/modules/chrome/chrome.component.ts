@@ -36,18 +36,8 @@ export class ChromeComponent extends ColorWrap {
         backgroundColor: 'rgb(248, 248, 248)',
         boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
     };
-    activeBackground: string;
 
-    constructor() {
-        super();
-    }
-
-    afterValidChange() {
-        this.activeBackground = `rgba(${this.rgb.r}, ${this.rgb.g}, ${
-            this.rgb.b
-            }, ${this.rgb.a})`;
-    }
-    handleValueChange({ data, $event }) {
-        this.handleChange(data, $event);
+    handleValueChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
 }

@@ -1,0 +1,19 @@
+@mixin ngx-color-raised-theme($theme) {
+    .ngx-color-raised {
+        .zDepth-1 {
+            @include mat-elevation(1);
+        }
+        .zDepth-2 {
+            @include mat-elevation(2);
+        }
+        .zDepth-3 {
+            @include mat-elevation(3);
+        }
+        .zDepth-4 {
+            @include mat-elevation(4);
+        }
+        .zDepth-5 {
+            @include mat-elevation(5);
+        }
+    }
+}

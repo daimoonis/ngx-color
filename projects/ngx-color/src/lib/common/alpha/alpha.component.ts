@@ -3,13 +3,16 @@ import {
     Component,
     EventEmitter,
     Input,
-    OnChanges,
     Output,
     ViewEncapsulation,
     HostBinding,
+    OnChanges
 } from '@angular/core';
+import { NgxColor } from '../helpers/ngx-color';
+import { isNil } from 'lodash';
+import { RGBA } from '../helpers/public_api';
 
-import { HSLA, RGBA } from '../helpers/color.interfaces';
+export type AlphaDirection = 'horizontal' | 'vertical';
 
 @Component({
     selector: 'ngx-color-alpha',
@@ -21,41 +24,46 @@ import { HSLA, RGBA } from '../helpers/color.interfaces';
 export class AlphaComponent implements OnChanges {
     @HostBinding('class.ngx-color-alpha')
     _hostClass = true;
-    @Input() hsl: HSLA;
-    @Input() rgb: RGBA;
+    _rgba: RGBA;
+    @Input() color: NgxColor;
     @Input() pointer: { [key: string]: string };
     @Input() shadow: string;
     @Input() radius: string;
-    @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
-    @Output() onChange = new EventEmitter<any>();
+    @Input() direction: AlphaDirection;
+    @Output() onChange = new EventEmitter<NgxColor>();
     gradient: { [key: string]: string };
     pointerLeft: number;
     pointerTop: number;
 
-    ngOnChanges() {
-        if (this.direction === 'vertical') {
+    private _setPosition(direction: AlphaDirection, actualColorRgb: RGBA) {
+        if (direction === 'vertical') {
             this.pointerLeft = 0;
-            this.pointerTop = this.rgb.a * 100;
+            this.pointerTop = actualColorRgb.a * 100;
             this.gradient = {
-                background: `linear-gradient(to bottom, rgba(${this.rgb.r},${
-                    this.rgb.g
-                    },${this.rgb.b}, 0) 0%,
-          rgba(${this.rgb.r},${this.rgb.g},${this.rgb.b}, 1) 100%)`,
+                background: `linear-gradient(to bottom, rgba(${actualColorRgb.r},${
+                    actualColorRgb.g
+                    },${actualColorRgb.b}, 0) 0%,
+          rgba(${actualColorRgb.r},${actualColorRgb.g},${actualColorRgb.b}, 1) 100%)`,
             };
         } else {
             this.gradient = {
-                background: `linear-gradient(to right, rgba(${this.rgb.r},${
-                    this.rgb.g
-                    },${this.rgb.b}, 0) 0%,
-          rgba(${this.rgb.r},${this.rgb.g},${this.rgb.b}, 1) 100%)`,
+                background: `linear-gradient(to right, rgba(${actualColorRgb.r},${
+                    actualColorRgb.g
+                    },${actualColorRgb.b}, 0) 0%,
+          rgba(${actualColorRgb.r},${actualColorRgb.g},${actualColorRgb.b}, 1) 100%)`,
             };
-            this.pointerLeft = this.rgb.a * 100;
+            this.pointerLeft = actualColorRgb.a * 100;
         }
     }
+
+    ngOnChanges() {
+        this._rgba = this.color.toRgb();
+        this._setPosition(this.direction, this._rgba);
+    }
+
     handleChange({ top, left, containerHeight, containerWidth, $event }) {
-        let data;
+        let a;
         if (this.direction === 'vertical') {
-            let a;
             if (top < 0) {
                 a = 0;
             } else if (top > containerHeight) {
@@ -63,18 +71,7 @@ export class AlphaComponent implements OnChanges {
             } else {
                 a = Math.round(top * 100 / containerHeight) / 100;
             }
-
-            if (this.hsl.a !== a) {
-                data = {
-                    h: this.hsl.h,
-                    s: this.hsl.s,
-                    l: this.hsl.l,
-                    a,
-                    source: 'rgb',
-                };
-            }
         } else {
-            let a;
             if (left < 0) {
                 a = 0;
             } else if (left > containerWidth) {
@@ -82,20 +79,15 @@ export class AlphaComponent implements OnChanges {
             } else {
                 a = Math.round(left * 100 / containerWidth) / 100;
             }
-
-            if (this.hsl.a !== a) {
-                data = {
-                    h: this.hsl.h,
-                    s: this.hsl.s,
-                    l: this.hsl.l,
-                    a,
-                    source: 'rgb',
-                };
-            }
         }
-        if (!data) {
+        if (isNil(a) || this._rgba.a === a) {
             return null;
         }
-        this.onChange.emit({ data, $event });
+        this.onChange.emit(new NgxColor({
+            r: this._rgba.r,
+            g: this._rgba.g,
+            b: this._rgba.b,
+            a: a
+        }));
     }
 }

@@ -4,11 +4,14 @@ import {
     Input,
     HostBinding,
     ViewEncapsulation,
+    ChangeDetectorRef,
+    OnInit
 } from '@angular/core';
-import {
-    ColorWrap,
-    getContrastingColor, isValidHex
-} from '../../common/public_api';
+import { ColorWrap, NgxColor, parseColors } from '@ngx-color-project/common';
+import { ColorInput } from '@ctrl/tinycolor';
+import { isNil } from 'lodash';
+import { Subject } from 'rxjs';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'ngx-color-block',
@@ -17,13 +20,8 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class BlockComponent extends ColorWrap {
-    @HostBinding('class.ngx-color-block')
-    _hostClass = true;
-    /** Pixel value for picker width */
-    @Input() width: string | number = 170;
-    /** Color squares to display */
-    @Input() colors = [
+export class BlockComponent extends ColorWrap implements OnInit {
+    public static readonly DEFAULT_COLORS = [
         '#D9E3F0',
         '#F47373',
         '#697689',
@@ -32,47 +30,41 @@ export class BlockComponent extends ColorWrap {
         '#555555',
         '#dce775',
         '#ff8a65',
-        '#ba68c8',
+        '#ba68c8'
     ];
+    @HostBinding('class.ngx-color-block')
+    _hostClass = true;
+    /** Pixel value for picker width */
+    @Input() width: string | number = 170;
+    _colors: NgxColor[];
+    /** Color squares to display */
+    @Input()
+    get colors(): ColorInput[] {
+        return this._colors;
+    }
+    set colors(colors: ColorInput[]) {
+        this._colors = !isNil(colors) ? parseColors(colors) : parseColors(BlockComponent.DEFAULT_COLORS);
+        this.changeDetectorRef.markForCheck();
+    }
     @Input() triangle: 'top' | 'hide' = 'top';
-    triangleBorderColor: string;
-    input: { [key: string]: string } = {
-        width: '100%',
-        fontSize: '12px',
-        color: '#666',
-        border: '0px',
-        outline: 'none',
-        height: '22px',
-        boxShadow: 'inset 0 0 0 1px #ddd',
-        borderRadius: '4px',
-        padding: '0 7px',
-        boxSizing: 'border-box',
-    };
-    wrap: { [key: string]: string } = {
-        position: 'relative',
-        width: '100%',
-    };
 
-    constructor() {
-        super();
+    _debounceValueChange = new Subject<{ data: string, $event: Event }>();
+
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
+        this._colors = parseColors(BlockComponent.DEFAULT_COLORS);
     }
 
-    handleValueChange({ data, $event }) {
-        this.handleBlockChange({ hex: data, $event });
+    handleBlockChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
-    getContrastingColor(hex) {
-        return getContrastingColor(hex);
-    }
-    handleBlockChange({ hex, $event }) {
-        if (isValidHex(hex)) {
-            // this.hex = hex;
-            this.handleChange(
-                {
-                    hex,
-                    source: 'hex',
-                },
-                $event,
-            );
-        }
+
+    ngOnInit() {
+        this._debounceValueChange.pipe(debounceTime(400), takeUntil(this._destroyed)).subscribe((d) => {
+            const newColor = new NgxColor(d.data);
+            if (newColor.isValid) {
+                this.handleChange(newColor, d.$event);
+            }
+        });
     }
 }

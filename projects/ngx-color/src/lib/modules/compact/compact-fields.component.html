@@ -1,11 +1,7 @@
-<div class="compact-fields">
-    <div class="compact-active" [style.background]="hex"></div>
-    <ngx-color-editable-input style="flex: 6 1 0%;" [style]="{ wrap: HEXWrap, input: HEXinput, label: HEXlabel }" label="hex" [value]="hex"
-        (onChange)="handleChange($event)"></ngx-color-editable-input>
-    <ngx-color-editable-input style="flex: 3 1 0%" [style]="{ wrap: RGBwrap, input: RGBinput, label: RGBlabel }" label="r" [value]="rgb.r"
-        (onChange)="handleChange($event)"></ngx-color-editable-input>
-    <ngx-color-editable-input style="flex: 3 1 0%" [style]="{ wrap: RGBwrap, input: RGBinput, label: RGBlabel }" label="g" [value]="rgb.g"
-        (onChange)="handleChange($event)"></ngx-color-editable-input>
-    <ngx-color-editable-input style="flex: 3 1 0%" [style]="{ wrap: RGBwrap, input: RGBinput, label: RGBlabel }" label="b" [value]="rgb.b"
-        (onChange)="handleChange($event)"></ngx-color-editable-input>
+<div class="ngx-color-compact-fields-fields">
+    <div class="ngx-color-compact-fields-active" [style.background]="color.toRgbString()"></div>
+    <ngx-color-editable-input class="ngx-color-compact-fields-hex" label="hex" [value]="color.toHexString()" (onChange)="handleChange($event)"></ngx-color-editable-input>
+    <ngx-color-editable-input class="ngx-color-compact-fields-rgb" label="r" [value]="color.toRgb().r" (onChange)="handleChange($event)"></ngx-color-editable-input>
+    <ngx-color-editable-input class="ngx-color-compact-fields-rgb" label="g" [value]="color.toRgb().g" (onChange)="handleChange($event)"></ngx-color-editable-input>
+    <ngx-color-editable-input class="ngx-color-compact-fields-rgb" label="b" [value]="color.toRgb().b" (onChange)="handleChange($event)"></ngx-color-editable-input>
 </div>

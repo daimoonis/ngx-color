@@ -1,8 +1,18 @@
 .ngx-color-block-swatches {
-    .color-block-swatches {
+    .ngx-color-block-swatches-swatches {
         margin-right: -10px;
     }
-    .color-block-clear {
+    .ngx-color-block-swatches-clear {
         clear: both;
+    }
+    .ngx-color-swatch {
+        width: 22px;
+        height: 22px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        .ngx-color-swatch-swatch {
+            border-radius: 4px;
+        }
     }
 }

@@ -1,0 +1,14 @@
+@mixin ngx-color-alpha-theme($theme) {
+    $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-alpha {
+        .ngx-color-alpha-alpha {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .ngx-color-alpha-slider {
+            box-shadow: 0 0 4px rgba(0, 0, 0, 1);
+            background: rgba(255, 255, 255, 1);
+        }
+    }
+}

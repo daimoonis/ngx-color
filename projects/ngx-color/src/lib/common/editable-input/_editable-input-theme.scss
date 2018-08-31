@@ -1,0 +1,10 @@
+@mixin ngx-color-editable-input-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-editable-input {
+        .ngx-color-editable-input-value {
+            background-color: transparent;
+            color: mat-color($foreground, text);
+        }
+    }
+}

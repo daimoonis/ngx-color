@@ -4,6 +4,7 @@ import {
     Input,
     HostBinding,
     ViewEncapsulation,
+    ChangeDetectorRef,
 } from '@angular/core';
 import {
     amber,
@@ -25,7 +26,9 @@ import {
     teal,
     yellow,
 } from 'material-colors';
-import { ColorWrap } from '../../common/public_api';
+import { ColorInput } from '@ctrl/tinycolor';
+import { ColorWrap, NgxColor, parseColors2 } from '@ngx-color-project/common';
+import { isNil } from 'lodash';
 
 @Component({
     selector: 'ngx-color-swatches',
@@ -35,15 +38,7 @@ import { ColorWrap } from '../../common/public_api';
     encapsulation: ViewEncapsulation.None
 })
 export class SwatchesComponent extends ColorWrap {
-    @HostBinding('class.ngx-color-swatches')
-    _hostClass = true;
-    /** Pixel value for picker width */
-    @Input() width: string | number = 320;
-    /** Color squares to display */
-    @Input() height: string | number = 240;
-    /** An array of color groups, each with an array of colors */
-    @Input()
-    colors: string[][] = [
+    public static readonly DEFAULT_COLORS = [
         [
             red['900'],
             red['700'],
@@ -172,10 +167,29 @@ export class SwatchesComponent extends ColorWrap {
         ],
         ['#000000', '#525252', '#969696', '#D9D9D9', '#FFFFFF'],
     ];
-    constructor() {
-        super();
+
+    @HostBinding('class.ngx-color-swatches')
+    _hostClass = true;
+    /** Pixel value for picker width */
+    @Input() width: string | number = 320;
+    /** Color squares to display */
+    @Input() height: string | number = 240;
+    /** An array of color groups, each with an array of colors */
+    _colors: NgxColor[][];
+    @Input()
+    get colors(): ColorInput[][] {
+        return this._colors;
     }
-    handlePickerChange({ data, $event }) {
-        this.handleChange(data, $event);
+    set colors(colors: ColorInput[][]) {
+        this._colors = !isNil(colors) ? parseColors2(colors) : parseColors2(SwatchesComponent.DEFAULT_COLORS);
+    }
+
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
+        this._colors = parseColors2(SwatchesComponent.DEFAULT_COLORS);
+    }
+
+    handlePickerChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
 }

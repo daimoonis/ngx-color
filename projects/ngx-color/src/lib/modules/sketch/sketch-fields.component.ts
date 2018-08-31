@@ -6,9 +6,9 @@ import {
     Input,
     Output,
     ViewEncapsulation,
+    ChangeDetectorRef,
 } from '@angular/core';
-
-import { isValidHex, HSLA, RGBA } from '../../common/public_api';
+import { NgxColor, ColorEvent, HSL, HSLA } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-sketch-fields',
@@ -20,53 +20,49 @@ import { isValidHex, HSLA, RGBA } from '../../common/public_api';
 export class SketchFieldsComponent {
     @HostBinding('class.ngx-color-sketch-fields')
     _hostClass = true;
-    @Input() hsl: HSLA;
-    @Input() rgb: RGBA;
-    @Input() hex: string;
+    _color: NgxColor;
+    _colorHsl: HSL | HSLA;
+    @Input()
+    get color() {
+        return this._color;
+    }
+    set color(color: NgxColor) {
+        this.updateCurrentColorValues(color);
+    }
+
     @Input() disableAlpha = false;
-    @Output() onChange = new EventEmitter<any>();
-    input: { [key: string]: string } = {
-        width: '100%',
-        padding: '4px 10% 3px',
-        border: 'none',
-        boxSizing: 'border-box',
-        boxShadow: 'inset 0 0 0 1px #ccc',
-        fontSize: '11px',
-    };
-    label: { [key: string]: string } = {
-        display: 'block',
-        textAlign: 'center',
-        fontSize: '11px',
-        color: '#222',
-        paddingTop: '3px',
-        paddingBottom: '4px',
-        textTransform: 'capitalize',
-    };
+    @Output() onChange = new EventEmitter<ColorEvent>();
+
+    constructor(private changeDetectorRef: ChangeDetectorRef) { }
+
+    updateCurrentColorValues(color: NgxColor) {
+        this._colorHsl = color.toHsl();
+        this._color = color;
+        this.changeDetectorRef.markForCheck();
+    }
 
     round(value) {
         return Math.round(value);
     }
+
     handleChange({ data, $event }) {
         if (data.hex) {
-            if (isValidHex(data.hex)) {
+            const newColor = new NgxColor(data.hex);
+            if (newColor.isValid) {
+                this.updateCurrentColorValues(newColor);
                 this.onChange.emit({
-                    data: {
-                        hex: data.hex,
-                        source: 'hex',
-                    },
-                    $event,
+                    color: newColor,
+                    $event
                 });
             }
         } else if (data.r || data.g || data.b) {
-            this.onChange.emit({
-                data: {
-                    r: data.r || this.rgb.r,
-                    g: data.g || this.rgb.g,
-                    b: data.b || this.rgb.b,
-                    source: 'rgb',
-                },
-                $event,
+            const newColor = new NgxColor({
+                r: data.r || this._color.r,
+                g: data.g || this._color.g,
+                b: data.b || this._color.b
             });
+            this.updateCurrentColorValues(newColor);
+            this.onChange.emit({ color: newColor, $event });
         } else if (data.a) {
             if (data.a < 0) {
                 data.a = 0;
@@ -74,27 +70,22 @@ export class SketchFieldsComponent {
                 data.a = 100;
             }
             data.a /= 100;
-
-            this.onChange.emit({
-                data: {
-                    h: this.hsl.h,
-                    s: this.hsl.s,
-                    l: this.hsl.l,
-                    a: Math.round(data.a * 100) / 100,
-                    source: 'rgb',
-                },
-                $event,
+            const newColor = new NgxColor({
+                h: this._colorHsl.h,
+                s: this._colorHsl.s,
+                l: this._colorHsl.l,
+                a: Math.round(data.a * 100) / 100
             });
+            this.updateCurrentColorValues(newColor);
+            this.onChange.emit({ color: newColor, $event });
         } else if (data.h || data.s || data.l) {
-            this.onChange.emit({
-                data: {
-                    h: data.h || this.hsl.h,
-                    s: Number((data.s && data.s) || this.hsl.s),
-                    l: Number((data.l && data.l) || this.hsl.l),
-                    source: 'hsl',
-                },
-                $event,
+            const newColor = new NgxColor({
+                h: data.h || this._colorHsl.h,
+                s: Number((data.s && data.s) || this._colorHsl.s),
+                l: Number((data.l && data.l) || this._colorHsl.l)
             });
+            this.updateCurrentColorValues(newColor);
+            this.onChange.emit({ color: newColor, $event });
         }
     }
 }

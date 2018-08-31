@@ -2,11 +2,11 @@ import {
     ChangeDetectionStrategy,
     Component,
     Input,
-    OnChanges,
     ViewEncapsulation,
     HostBinding,
+    ChangeDetectorRef
 } from '@angular/core';
-import { ColorWrap, toState } from '../../common/public_api';
+import { ColorWrap } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-alpha-picker',
@@ -15,14 +15,25 @@ import { ColorWrap, toState } from '../../common/public_api';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class AlphaPickerComponent extends ColorWrap implements OnChanges {
-    @HostBinding('class.ngx-color-alpha-picker')
-    _hostClass = true;
+export class AlphaPickerComponent extends ColorWrap {
+    @HostBinding('class')
+    _hostClass = 'ngx-color-alpha-picker';
+    _direction: 'horizontal' | 'vertical' = 'horizontal';
     /** Pixel value for picker width */
     @Input() width: string | number = 316;
     /** Pixel value for picker height */
     @Input() height: string | number = 16;
-    @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
+    @Input()
+    get direction(): 'horizontal' | 'vertical' {
+        return this._direction;
+    }
+    set direction(direction: 'horizontal' | 'vertical') {
+        this._direction = direction || 'horizontal';
+        if (this.direction === 'vertical') {
+            this.pointer.transform = 'translate(-3px, -9px)';
+            this.changeDetectorRef.markForCheck();
+        }
+    }
     pointer: { [key: string]: string } = {
         width: '18px',
         height: '18px',
@@ -31,16 +42,7 @@ export class AlphaPickerComponent extends ColorWrap implements OnChanges {
         boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
     };
 
-    constructor() {
-        super();
-    }
-    ngOnChanges() {
-        if (this.direction === 'vertical') {
-            this.pointer.transform = 'translate(-3px, -9px)';
-        }
-        this.setState(toState(this.color, this.oldHue));
-    }
-    handlePickerChange({ data, $event }) {
-        this.handleChange(data, $event);
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
     }
 }

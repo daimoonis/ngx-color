@@ -1,46 +1,51 @@
-<div class="chrome-wrap">
-    <div class="chrome-fields">
+<div class="ngx-color-chrome-fields-wrap">
+    <div class="ngx-color-chrome-fields-fields">
         <ng-template [ngIf]="view === 'hex'">
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="hex" [value]="hex" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="hex" [value]="_color.toHexString()" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
         </ng-template>
         <ng-template [ngIf]="view === 'rgb'">
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="r" [value]="rgb.r" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="r" [value]="_colorRgb.r" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="g" [value]="rgb.g" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="g" [value]="_colorRgb.g" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="b" [value]="rgb.b" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="b" [value]="_colorRgb.b" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
-            <div class="chrome-field">
-                <ngx-color-editable-input *ngIf="!disableAlpha" [style]="{ input: input, label: label }" label="a" [value]="rgb.a" [arrowOffset]="0.01"
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input *ngIf="!disableAlpha" label="a" [value]="_colorRgb.a" [arrowOffset]="0.01"
                     (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
         </ng-template>
         <ng-template [ngIf]="view === 'hsl'">
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="h" [value]="round(hsl.h)" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="h" [value]="round(_colorHsl.h)" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="s" [value]="round(hsl.s * 100) + '%'" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="s" [value]="round(_colorHsl.s * 100) + '%'" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
-            <div class="chrome-field">
-                <ngx-color-editable-input [style]="{ input: input, label: label }" label="l" [value]="round(hsl.l * 100) + '%'" (onChange)="handleChange($event)"></ngx-color-editable-input>
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input label="l" [value]="round(_colorHsl.l * 100) + '%'" (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
-            <div class="chrome-field">
-                <ngx-color-editable-input *ngIf="!disableAlpha" [style]="{ input: input, label: label }" label="a" [value]="hsl.a" [arrowOffset]="0.01"
+            <div class="ngx-color-chrome-fields-field">
+                <ngx-color-editable-input *ngIf="!disableAlpha" label="a" [value]="_colorHsl.a" [arrowOffset]="0.01"
                     (onChange)="handleChange($event)"></ngx-color-editable-input>
             </div>
         </ng-template>
     </div>
-    <div class="chrome-toggle">
-        <div class="chrome-icon" (click)="toggleViews()" #icon>
-            <svg class="chrome-toggle-svg" viewBox="0 0 24 24">
-                <path #iconUp fill="#333" d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" />
-                <path #iconDown fill="#333" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z" />
+    <div class="ngx-color-chrome-fields-toggle">
+        <div class="ngx-color-chrome-fields-icon" (click)="toggleViews()" #icon>
+            <svg class="ngx-color-chrome-fields-toggle-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
+                width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+                <g id="Bounding_Boxes">
+                    <path fill="none" d="M0,0h24v24H0V0z" />
+                </g>
+                <g id="Outline_1_">
+                    <path d="M12,5.83L15.17,9l1.41-1.41L12,3L7.41,7.59L8.83,9L12,5.83z M12,18.17L8.83,15l-1.41,1.41L12,21l4.59-4.59L15.17,15   L12,18.17z" />
+                </g>
             </svg>
         </div>
     </div>

@@ -4,40 +4,43 @@
   "license": "MIT",
   "homepage": "https://github.com/daimoonis/ngx-color",
   "bugs": "https://github.com/daimoonis/ngx-color/issues",
-  "repository": "daimoonis/ngx-color",
+  "repository": "https://github.com/daimoonis/ngx-color",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build:ngx-color:prod": "ng build --app ngx-color --environment production",
-    "build:ngx-color-app": "ng build --app ngx-color-app --environment production",
-    "ghpages": "ng build --prod",
-    "test": "ng test --watch=false --code-coverage --browsers=ChromeCI",
-    "test:watch": "ng test --browsers=ChromeCI",
-    "test:ci": "ng test --watch=false --code-coverage --no-progress --browsers=ChromeCI",
-    "lint": "ng lint ngx-color --type-check --format stylish",
-    "lint:fix": "ng lint ngx-color --type-check --fix --format stylish",
-    "commit": "git-cz",
-    "travis-deploy-once": "travis-deploy-once",
-    "publish": "cd dist/packages-dist && npm publish",
-    "semantic-release": "cd dist/packages-dist && semantic-release",
-    "bundlesize": "npx bundlesize"
+    "build:library": "ng build ngx-color --configuration production",
+    "postbuild:library": "npm run bundlescss && npm run bundleDarkThemeCss && npm run bundleLightThemeCss",
+    "bundlescss": "scss-bundle --entry projects/ngx-color/src/material-theme.scss --dest dist/ngx-color/_material-theming.scss",
+    "bundleDarkThemeCss": "node-sass projects/ngx-color/src/dark-theme.scss --dest dist/ngx-color/dark-theme.min.css --output-style compressed",
+    "bundleLightThemeCss": "node-sass projects/ngx-color/src/light-theme.scss --dest dist/ngx-color/light-theme.min.css --output-style compressed",
+    "lint:library": "ng lint ngx-color --type-check --format stylish",
+    "test:library": "ng test ngx-color --watch=false --code-coverage --browsers=ChromeCI",
+    "test:library:dev": "ng test ngx-color --watch=true --code-coverage --browsers=ChromeCI",
+    "test:library:ci": "ng test ngx-color --watch=false --code-coverage --no-progress --browsers=ChromeCI",
+    "serve:app": "ng serve ngx-color-app",
+    "build:app": "ng build ngx-color-app --configuration production",
+    "lint:app": "ng lint ngx-color-app --type-check --format stylish",
+    "publish": "cd dist/ngx-color && npm publish"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "6.1.2",
+    "@angular/cdk": "6.4.7",
     "@angular/common": "6.1.2",
     "@angular/compiler": "6.1.2",
     "@angular/core": "6.1.2",
     "@angular/forms": "6.1.2",
     "@angular/http": "6.1.2",
+    "@angular/material": "6.4.7",
     "@angular/platform-browser": "6.1.2",
     "@angular/platform-browser-dynamic": "6.1.2",
     "@ctrl/ngx-github-buttons": "2.0.4",
     "@ctrl/tinycolor": "2.2.0",
+    "@types/lodash": "^4.14.116",
     "bootstrap": "4.1.3",
     "core-js": "2.5.7",
+    "lodash": "4.17.10",
     "material-colors": "1.2.6",
-    "rxjs": "6.2.2",
+    "rxjs": "6.3.1",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
@@ -50,9 +53,7 @@
     "@types/jasmine": "2.8.8",
     "@types/node": "10.5.8",
     "@types/rimraf": "2.0.2",
-    "codelyzer": "4.4.3",
-    "commitizen": "2.10.1",
-    "cz-conventional-changelog": "2.1.0",
+    "codelyzer": "4.4.4",
     "fs-extra": "7.0.0",
     "jasmine-core": "3.2.0",
     "karma": "3.0.0",
@@ -62,28 +63,13 @@
     "karma-jasmine": "1.1.2",
     "karma-jasmine-html-reporter": "1.2.0",
     "karma-mocha-reporter": "2.2.5",
-    "ng-packagr": "4.1.0",
+    "ng-packagr": "4.1.1",
     "rimraf": "2.6.2",
-    "semantic-release": "15.9.8",
-    "travis-deploy-once": "5.0.2",
-    "ts-node": "7.0.0",
+    "scss-bundle": "^2.4.0",
+    "ts-node": "7.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "5.11.0",
     "typescript": "2.9.2"
-  },
-  "release": {
-    "branch": "master"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "bundlesize": [
-    {
-      "path": "./dist/packages-dist/bundles/ngx-color.umd.min.js",
-      "maxSize": "6 kB"
-    }
-  ]
+  }
 }

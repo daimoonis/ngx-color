@@ -1,0 +1,26 @@
+@mixin ngx-color-compact-theme($theme) {
+    $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-compact {
+        .ngx-color-compact-picker {
+            background-color: mat-color($background, card);
+            color: mat-color($foreground, text);
+            @include mat-elevation(8);
+        }
+        .ngx-color-compact-color {
+            .ngx-color-swatch {
+                .ngx-color-swatch-swatch {
+                    box-shadow: inset 0 0 0 1px mat-color($foreground, secondary-text);
+                }
+            }
+        }
+        .ngx-color-compact-fields {
+            .ngx-color-editable-input {
+                .ngx-color-editable-input-label {
+                    color: map-get($mat-grey, 500);
+                }
+            }
+        }
+    }
+}

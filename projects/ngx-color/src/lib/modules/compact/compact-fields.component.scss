@@ -1,15 +1,46 @@
 .ngx-color-compact-fields {
-    .compact-fields {
+    .ngx-color-compact-fields-fields {
         display: flex;
         padding-bottom: 6px;
         padding-right: 5px;
         position: relative;
     }
-    .compact-active {
+    .ngx-color-compact-fields-active {
         position: absolute;
         top: 6px;
         left: 5px;
         height: 9px;
         width: 9px;
+    }
+    .ngx-color-editable-input {
+        font-size: 0.9em;
+        .ngx-color-editable-input-value {
+            width: 80%;
+            padding: 0px;
+            border: none;
+                outline: none;
+                background: none;
+        }
+        &.ngx-color-compact-fields-hex {
+            flex: 6 1 0%;
+            .ngx-color-editable-input-value {
+                padding-left: 20%;
+            }
+            .ngx-color-editable-input-label {
+                display: none;
+            }
+        }
+        &.ngx-color-compact-fields-rgb {
+            flex: 3 1 0%;
+            .ngx-color-editable-input-value {
+                padding-left: 30%;
+            }
+            .ngx-color-editable-input-label {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                text-transform: uppercase;
+            }
+        }
     }
 }

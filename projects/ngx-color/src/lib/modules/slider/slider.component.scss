@@ -1,6 +1,14 @@
 .ngx-color-slider {
-    .slider-hue {
+    .ngx-color-slider-hue {
         height: 12px;
         position: relative;
+    }
+    .ngx-color-hue {
+        .ngx-color-hue-slider {
+            width: 14px;
+            height: 14px;
+            border-radius: 6px;
+            transform: translate(-7px, -2px);
+        }
     }
 }

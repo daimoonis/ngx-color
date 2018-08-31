@@ -1,32 +1,31 @@
 .ngx-color-hue {
-    .color-hue {
+    .ngx-color-hue-hue {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
     }
-    .color-hue-container {
+    .ngx-color-hue-container {
         margin: 0 2px;
         position: relative;
         height: 100%;
     }
-    .color-hue-pointer {
+    .ngx-color-hue-pointer {
         position: absolute;
     }
-    .color-hue-slider {
+    .ngx-color-hue-slider {
+        cursor: pointer;
         margin-top: 1px;
         width: 4px;
         border-radius: 1px;
         height: 8px;
-        box-shadow: 0 0 2px rgba(0, 0, 0, .6);
-        background: #fff;
         transform: translateX(-2px);
     }
-    .color-hue-horizontal {
+    .ngx-color-hue-horizontal {
         background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
     }
-    .color-hue-vertical {
+    .ngx-color-hue-vertical {
         background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
     }
 }

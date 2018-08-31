@@ -4,6 +4,7 @@ import {
     Input,
     HostBinding,
     ViewEncapsulation,
+    ChangeDetectorRef,
 } from '@angular/core';
 import {
     amber,
@@ -25,7 +26,9 @@ import {
     teal,
     yellow,
 } from 'material-colors';
-import { ColorWrap, isValidHex } from '../../common/public_api';
+import { ColorInput } from '@ctrl/tinycolor';
+import { ColorWrap, NgxColor, parseColors } from '@ngx-color-project/common';
+import { isNil } from 'lodash';
 
 @Component({
     selector: 'ngx-color-circle',
@@ -35,13 +38,7 @@ import { ColorWrap, isValidHex } from '../../common/public_api';
     encapsulation: ViewEncapsulation.None
 })
 export class CircleComponent extends ColorWrap {
-    @HostBinding('class.ngx-color-circle')
-    _hostClass = true;
-    /** Pixel value for picker width */
-    @Input() width: string | number = 252;
-    /** Color squares to display */
-    @Input()
-    colors: string[] = [
+    public static readonly DEFAULT_COLORS = [
         red['500'],
         pink['500'],
         purple['500'],
@@ -61,23 +58,34 @@ export class CircleComponent extends ColorWrap {
         brown['500'],
         blueGrey['500'],
     ];
+    @HostBinding('class.ngx-color-circle')
+    _hostClass = true;
+    /** Pixel value for picker width */
+    @Input() width: string | number = 252;
+    _colors: NgxColor[];
+    /** Color squares to display */
+    @Input()
+    get colors(): ColorInput[] {
+        return this._colors;
+    }
+    set colors(colors: ColorInput[]) {
+        this._colors = !isNil(colors) ? parseColors(colors) : parseColors(CircleComponent.DEFAULT_COLORS);
+    }
     /** Value for circle size */
     @Input() circleSize = 28;
     /** Value for spacing between circles */
     @Input() circleSpacing = 14;
 
-    constructor() {
-        super();
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
+        this._colors = parseColors(CircleComponent.DEFAULT_COLORS);
     }
-    isActive(color) {
-        return this.hex === color;
+
+    handleBlockChange(color: NgxColor, $event: Event) {
+        this.handleChange(color, $event);
     }
-    handleBlockChange({ hex, $event }) {
-        if (isValidHex(hex)) {
-            this.handleChange({ hex, source: 'hex' }, $event);
-        }
-    }
-    handleValueChange({ data, $event }) {
-        this.handleChange(data, $event);
+
+    handleValueChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
 }

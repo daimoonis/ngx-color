@@ -8,7 +8,7 @@ import {
     ViewEncapsulation,
     HostBinding,
 } from '@angular/core';
-import { getContrastingColor } from '../../common/public_api';
+import { NgxColor, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-swatches-color',
@@ -20,41 +20,30 @@ import { getContrastingColor } from '../../common/public_api';
 export class SwatchesColorComponent implements OnInit {
     @HostBinding('class.ngx-color-swatches-color')
     _hostClass = true;
-    @Input() color: string;
+    @Input() color: NgxColor;
     @Input() first = false;
     @Input() last = false;
     @Input() active: boolean;
-    @Output() onClick = new EventEmitter<any>();
-    @Output() onSwatchHover = new EventEmitter<any>();
-    getContrastingColor = getContrastingColor;
-    colorStyle: { [key: string]: string } = {
-        width: '40px',
-        height: '24px',
-        cursor: 'pointer',
-        marginBottom: '1px',
-    };
+    @Output() onClick = new EventEmitter<ColorEvent>();
+    @Output() onSwatchHover = new EventEmitter<ColorEvent>();
+
+    colorStyle: { [key: string]: string } = {};
     focusStyle: { [key: string]: string } = {};
 
     ngOnInit() {
-        this.colorStyle.background = this.color;
-        this.focusStyle.boxShadow = `0 0 4px ${this.color}`;
+        this.colorStyle.background = this.color.toRgbString();
+        this.focusStyle.boxShadow = `0 0 4px ${this.color.toRgbString()}`;
         if (this.first) {
             this.colorStyle.borderRadius = '2px 2px 0 0';
         }
         if (this.last) {
             this.colorStyle.borderRadius = '0 0 2px 2px';
         }
-        if (this.color === '#FFFFFF') {
-            this.colorStyle.boxShadow = 'inset 0 0 0 1px #ddd';
-        }
     }
     handleClick($event) {
         this.onClick.emit({
-            data: {
-                hex: this.color,
-                source: 'hex',
-            },
-            $event,
+            color: this.color,
+            $event
         });
     }
 }

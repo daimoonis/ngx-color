@@ -4,8 +4,11 @@ import {
     Input,
     HostBinding,
     ViewEncapsulation,
+    ChangeDetectorRef,
 } from '@angular/core';
-import { ColorWrap, isValidHex } from '../../common/public_api';
+import { ColorWrap, parseColors, NgxColor } from '@ngx-color-project/common';
+import { ColorInput } from '@ctrl/tinycolor';
+import { isNil } from 'lodash';
 
 @Component({
     selector: 'ngx-color-github',
@@ -15,12 +18,7 @@ import { ColorWrap, isValidHex } from '../../common/public_api';
     encapsulation: ViewEncapsulation.None
 })
 export class GithubComponent extends ColorWrap {
-    @HostBinding('class.ngx-color-github')
-    _hostClass = true;
-    /** Pixel value for picker width */
-    @Input() width: string | number = 212;
-    /** Color squares to display */
-    @Input() colors = [
+    public static readonly DEFAULT_COLORS = [
         '#B80000',
         '#DB3E00',
         '#FCCB00',
@@ -38,18 +36,32 @@ export class GithubComponent extends ColorWrap {
         '#BED3F3',
         '#D4C4FB',
     ];
+
+    @HostBinding('class.ngx-color-github')
+    _hostClass = true;
+    _colors: NgxColor[];
+    /** Pixel value for picker width */
+    @Input() width: string | number = 212;
+    /** Color squares to display */
+    @Input()
+    get colors(): ColorInput[] {
+        return this._colors;
+    }
+    set colors(colors: ColorInput[]) {
+        this._colors = !isNil(colors) ? parseColors(colors) : parseColors(GithubComponent.DEFAULT_COLORS);
+    }
     @Input() triangle: 'hide' | 'top-left' | 'top-right' | 'bottom-right' = 'top-left';
 
-    constructor() {
-        super();
+    constructor(changeDetectorRef: ChangeDetectorRef) {
+        super(changeDetectorRef);
+        this._colors = parseColors(GithubComponent.DEFAULT_COLORS);
     }
 
-    handleBlockChange({ hex, $event }) {
-        if (isValidHex(hex)) {
-            this.handleChange({ hex, source: 'hex' }, $event);
-        }
+    handleBlockChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
-    handleValueChange({ data, $event }) {
-        this.handleChange(data, $event);
+
+    handleValueChange({ color, $event }) {
+        this.handleChange(color, $event);
     }
 }

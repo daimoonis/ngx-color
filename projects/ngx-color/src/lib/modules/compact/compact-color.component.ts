@@ -6,10 +6,9 @@ import {
     OnChanges,
     Output,
     HostBinding,
-    ViewEncapsulation,
+    ViewEncapsulation
 } from '@angular/core';
-
-import { getContrastingColor } from '../../common/public_api';
+import { NgxColor, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-compact-color',
@@ -21,30 +20,18 @@ import { getContrastingColor } from '../../common/public_api';
 export class CompactColorComponent implements OnChanges {
     @HostBinding('class.ngx-color-compact-color')
     _hostClass = true;
-    @Input() color: string;
+    @Input() color: NgxColor;
     @Input() active: boolean;
-    @Output() onClick = new EventEmitter<any>();
-    @Output() onSwatchHover = new EventEmitter<any>();
-    swatchStyle: { [key: string]: string } = {
-        width: '15px',
-        height: '15px',
-        float: 'left',
-        marginRight: '5px',
-        marginBottom: '5px',
-        position: 'relative',
-        cursor: 'pointer',
-    };
+    @Output() onClick = new EventEmitter<ColorEvent>();
+    @Output() onSwatchHover = new EventEmitter<ColorEvent>();
+    swatchStyle: { [key: string]: string } = {};
     swatchFocus: { [key: string]: string } = {};
-    getContrastingColor = getContrastingColor;
 
     ngOnChanges() {
-        this.swatchStyle.background = this.color;
+        this.swatchStyle.background = this.color.toRgbString();
         this.swatchFocus.boxShadow = `0 0 4px ${this.color}`;
-        if (this.color.toLowerCase() === '#ffffff') {
-            this.swatchStyle.boxShadow = 'inset 0 0 0 1px #ddd';
-        }
     }
-    handleClick({ hex, $event }) {
-        this.onClick.emit({ hex, $event });
+    handleClick({ color, $event }) {
+        this.onClick.emit({ color, $event });
     }
 }

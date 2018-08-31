@@ -1,0 +1,33 @@
+@mixin ngx-color-github-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-github {
+        .ngx-color-github-picker {
+            background-color: mat-color($background, card);
+            color: mat-color($foreground, text);
+            @include mat-elevation(8);
+        }
+        .ngx-color-github-top-left-triangle>.ngx-color-github-triangle,
+        .ngx-color-github-top-right-triangle>.ngx-color-github-triangle {
+            border-color: transparent transparent mat-color($background, card);
+        }
+        .ngx-color-github-top-left-triangle>.ngx-color-github-triangleShadow,
+        .ngx-color-github-top-right-triangle>.ngx-color-github-triangleShadow {
+            border-color: transparent transparent rgba(0, 0, 0, 0.1);
+        }
+        .ngx-color-github-bottom-right-triangle>.ngx-color-github-triangle,
+        .ngx-color-github-bottom-left-triangle>.ngx-color-github-triangle {
+            border-color: mat-color($background, card) transparent mat-color($background, card);
+        }
+        .ngx-color-github-bottom-right-triangle>.ngx-color-github-triangleShadow,
+        .ngx-color-github-bottom-left-triangle>.ngx-color-github-triangleShadow {
+            border-color: rgba(0, 0, 0, 0.1) transparent rgba(0, 0, 0, 0.1);
+        }
+        .ngx-color-github-swatch {
+            .ngx-color-github-swatch-swatch:hover {
+                outline: 2px solid mat-color($background, card);
+                box-shadow: 0 0 5px 2px mat-color($foreground, text);
+            }
+        }
+    }
+}

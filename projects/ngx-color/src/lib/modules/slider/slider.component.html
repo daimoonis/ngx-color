@@ -1,8 +1,8 @@
-<div class="slider-picker {{ className }}">
-    <div class="slider-hue">
-        <ngx-color-hue [hsl]="hsl" [radius]="radius" [pointer]="pointer" (onChange)="handlePickerChange($event)"></ngx-color-hue>
+<div class="ngx-color-slider-picker">
+    <div class="ngx-color-slider-hue">
+        <ngx-color-hue [color]="_color" [radius]="radius" (onChange)="handleChange($event)"></ngx-color-hue>
     </div>
-    <div class="slider-swatches">
-        <ngx-color-slider-swatches [hsl]="hsl" (onClick)="handlePickerChange($event)"></ngx-color-slider-swatches>
+    <div class="ngx-color-slider-swatches">
+        <ngx-color-slider-swatches [color]="_color" (onClick)="handlePickerChange($event)"></ngx-color-slider-swatches>
     </div>
 </div>

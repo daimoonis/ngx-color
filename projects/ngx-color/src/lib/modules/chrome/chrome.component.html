@@ -1,24 +1,24 @@
-<div class="chrome-picker {{ className }}">
-    <div class="saturation">
-        <ngx-color-saturation [hsl]="hsl" [hsv]="hsv" [circle]="circle" (onChange)="handleValueChange($event)"></ngx-color-saturation>
+<div class="ngx-color-chrome-picker">
+    <div class="ngx-color-chrome-saturation">
+        <ngx-color-saturation [color]="_color" [circle]="circle" (onChange)="handleValueChange($event)"></ngx-color-saturation>
     </div>
-    <div class="chrome-body">
-        <div class="chrome-controls">
-            <div class="chrome-color">
-                <div class="chrome-swatch">
-                    <div class="chrome-active" [style.background]="activeBackground"></div>
+    <div class="ngx-color-chrome-body">
+        <div class="ngx-color-chrome-controls">
+            <div class="ngx-color-chrome-color">
+                <div class="ngx-color-chrome-swatch">
+                    <div class="ngx-color-chrome-active" [style.background]="_color.toRgbString()"></div>
                     <ngx-color-checkboard></ngx-color-checkboard>
                 </div>
             </div>
-            <div class="chrome-toggles">
-                <div class="chrome-hue">
-                    <ngx-color-hue [radius]="2" [hsl]="hsl" [pointer]="pointer" (onChange)="handleValueChange($event)"></ngx-color-hue>
+            <div class="ngx-color-chrome-toggles">
+                <div class="ngx-color-chrome-hue">
+                    <ngx-color-hue [radius]="2" [color]="_color" [pointer]="pointer" (onChange)="handleChange($event)"></ngx-color-hue>
                 </div>
-                <div class="chrome-alpha" *ngIf="!disableAlpha">
-                    <ngx-color-alpha [radius]="2" [rgb]="rgb" [hsl]="hsl" [pointer]="pointer" (onChange)="handleValueChange($event)"></ngx-color-alpha>
+                <div class="ngx-color-chrome-alpha" *ngIf="!disableAlpha">
+                    <ngx-color-alpha [radius]="2" [color]="_color" [pointer]="pointer" (onChange)="handleChange($event)"></ngx-color-alpha>
                 </div>
             </div>
         </div>
-        <ngx-color-chrome-fields [rgb]="rgb" [hsl]="hsl" [hex]="hex" [disableAlpha]="disableAlpha" (onChange)="handleValueChange($event)"></ngx-color-chrome-fields>
+        <ngx-color-chrome-fields [color]="_color" [disableAlpha]="disableAlpha" (onChange)="handleValueChange($event)"></ngx-color-chrome-fields>
     </div>
 </div>

@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 
 import { HSLA, HSVA, HSVAsource } from '../helpers/color.interfaces';
+import { NgxColor } from '../helpers/ngx-color';
 
 @Component({
     selector: 'ngx-color-saturation',
@@ -21,22 +22,22 @@ import { HSLA, HSVA, HSVAsource } from '../helpers/color.interfaces';
 export class SaturationComponent implements OnChanges {
     @HostBinding('class.ngx-color-saturation')
     _hostClass = true;
-    @Input() hsl: HSLA;
-    @Input() hsv: HSVA;
+    @Input() color: NgxColor;
     @Input() radius: number;
     @Input() pointer: { [key: string]: string };
     @Input() circle: { [key: string]: string };
-    @Output() onChange = new EventEmitter<{ data: HSVAsource; $event: Event }>();
+    @Output() onChange = new EventEmitter<{ color: NgxColor; $event: Event }>();
     background: string;
     pointerTop: string;
     pointerLeft: string;
 
     ngOnChanges() {
-        this.background = `hsl(${this.hsl.h}, 100%, 50%)`;
-        this.pointerTop = -(this.hsv.v * 100) + 1 + 100 + '%';
-        this.pointerLeft = this.hsv.s * 100 + '%';
+        this.background = `hsl(${this.color.toHsl().h}, 100%, 50%)`;
+        this.pointerTop = -(this.color.toHsv().v * 100) + 1 + 100 + '%';
+        this.pointerLeft = this.color.toHsv().s * 100 + '%';
     }
     handleChange({ top, left, containerHeight, containerWidth, $event }) {
+        const actualColorHsl = this.color.toHsl();
         if (left < 0) {
             left = 0;
         } else if (left > containerWidth) {
@@ -52,13 +53,12 @@ export class SaturationComponent implements OnChanges {
         bright = bright > 0 ? bright : 0;
         bright = bright > 1 ? 1 : bright;
 
-        const data: HSVAsource = {
-            h: this.hsl.h,
+        const data: HSVA = {
+            h: actualColorHsl.h,
             s: saturation,
             v: bright,
-            a: this.hsl.a,
-            source: 'hsva',
+            a: actualColorHsl.a
         };
-        this.onChange.emit({ data, $event });
+        this.onChange.emit({ color: new NgxColor(data), $event });
     }
 }

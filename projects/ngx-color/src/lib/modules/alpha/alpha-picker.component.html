@@ -1,3 +1,3 @@
-<div class="alpha-picker {{ className }}" [style.width.px]="width" [style.height.px]="height">
-    <ngx-color-alpha [hsl]="hsl" [rgb]="rgb" [pointer]="pointer" [direction]="direction" (onChange)="handlePickerChange($event)"></ngx-color-alpha>
+<div class="ngx-color-alpha-picker-picker" [style.width.px]="width" [style.height.px]="height">
+    <ngx-color-alpha [color]="_color" [pointer]="pointer" [direction]="direction" (onChange)="handleChange($event)"></ngx-color-alpha>
 </div>

@@ -1,0 +1,40 @@
+@mixin ngx-color-twitter-theme($theme) {
+    $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    .ngx-color-twitter {
+        .ngx-color-twitter-picker {
+            background-color: mat-color($background, card);
+            color: mat-color($foreground, text);
+            @include mat-elevation(8);
+        }
+        .ngx-color-twitter-hash {
+            background-color: mat-color($background, card);
+            color: mat-color($foreground, secondary-text);
+            border-left: 1px solid mat-color($foreground, disabled-text);
+            border-top: 1px solid mat-color($foreground, disabled-text);
+            border-bottom: 1px solid mat-color($foreground, disabled-text);
+        }
+        .ngx-color-editable-input {
+            .ngx-color-editable-input-value {
+                border: 1px solid mat-color($foreground, disabled-text);
+            }
+        }
+        .ngx-color-twitter-top-left-triangle>.ngx-color-twitter-triangle,
+        .ngx-color-twitter-top-right-triangle>.ngx-color-twitter-triangle {
+            border-color: transparent transparent mat-color($background, card);
+        }
+        .ngx-color-twitter-top-left-triangle>.ngx-color-twitter-triangleShadow,
+        .ngx-color-twitter-top-right-triangle>.ngx-color-twitter-triangleShadow {
+            border-color: transparent transparent rgba(0, 0, 0, 0.1);
+        }
+        .ngx-color-twitter-bottom-right-triangle>.ngx-color-twitter-triangle,
+        .ngx-color-twitter-bottom-left-triangle>.ngx-color-twitter-triangle {
+            border-color: mat-color($background, card) transparent mat-color($background, card);
+        }
+        .ngx-color-twitter-bottom-right-triangle>.ngx-color-twitter-triangleShadow,
+        .ngx-color-twitter-bottom-left-triangle>.ngx-color-twitter-triangleShadow {
+            border-color: rgba(0, 0, 0, 0.1) transparent rgba(0, 0, 0, 0.1);
+        }
+    }
+}

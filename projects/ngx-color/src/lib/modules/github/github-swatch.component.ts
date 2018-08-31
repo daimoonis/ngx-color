@@ -7,6 +7,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
+import { NgxColor, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-github-swatch',
@@ -18,14 +19,11 @@ import {
 export class GithubSwatchComponent {
     @HostBinding('class.ngx-color-github-swatch')
     _hostClass = true;
-    @Input() color: string;
-    @Output() onClick = new EventEmitter<any>();
-    @Output() onSwatchHover = new EventEmitter<any>();
-    swatchStyle: { [key: string]: string };
+    @Input() color: NgxColor;
+    @Output() onClick = new EventEmitter<ColorEvent>();
+    @Output() onSwatchHover = new EventEmitter<ColorEvent>();
 
-    constructor() { }
-
-    handleClick({ hex, $event }) {
-        this.onClick.emit({ hex, $event });
+    handleClick({ color, $event }) {
+        this.onClick.emit({ color, $event });
     }
 }

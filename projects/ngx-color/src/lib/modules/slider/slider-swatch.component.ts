@@ -3,12 +3,12 @@ import {
     Component,
     EventEmitter,
     Input,
-    OnChanges,
     Output,
     HostBinding,
     ViewEncapsulation,
+    ChangeDetectorRef,
 } from '@angular/core';
-import { HSL } from '../../common/public_api';
+import { NgxColor, HSL, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-slider-swatch',
@@ -17,29 +17,51 @@ import { HSL } from '../../common/public_api';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class SliderSwatchComponent implements OnChanges {
+export class SliderSwatchComponent {
     @HostBinding('class.ngx-color-slider-swatch')
     _hostClass = true;
-    @Input() hsl: HSL;
+    private _hsl: HSL;
+    private _offset: number;
+    private _color: NgxColor;
+    @Input()
+    get color(): NgxColor {
+        return this._color;
+    }
+    set color(color: NgxColor) {
+        this._color = color;
+        this._hsl = this._color.toHsl();
+        this.setBackground();
+        this.changeDetectorRef.markForCheck();
+    }
     @Input() active: boolean;
-    @Input() offset: number;
+    @Input()
+    get offset(): number {
+        return this._offset;
+    }
+    set offset(offset: number) {
+        this._offset = offset;
+        this.setBackground();
+        this.changeDetectorRef.markForCheck();
+    }
     @Input() first = false;
     @Input() last = false;
-    @Output() onClick = new EventEmitter<any>();
+    @Output() onClick = new EventEmitter<ColorEvent>();
     background: string;
 
-    ngOnChanges() {
-        this.background = `hsl(${this.hsl.h}, 50%, ${this.offset * 100}%)`;
+    constructor(private changeDetectorRef: ChangeDetectorRef) { }
+
+    setBackground() {
+        this.background = `hsl(${this._hsl.h}, 50%, ${this._offset * 100}%)`;
     }
+
     handleClick($event) {
         this.onClick.emit({
-            data: {
-                h: this.hsl.h,
+            color: new NgxColor({
+                h: this._hsl.h,
                 s: 0.5,
                 l: this.offset,
-                source: 'hsl',
-            },
-            $event,
+            }),
+            $event
         });
     }
 }

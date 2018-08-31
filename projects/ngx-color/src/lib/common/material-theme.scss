@@ -1,0 +1,12 @@
+@import './alpha/alpha-theme';
+@import './checkboard/checkboard-theme';
+@import './hue/hue-theme';
+@import './raised/raised-theme';
+@import './editable-input/editable-input-theme';
+@mixin ngx-color-common-theme($theme) {
+    @include ngx-color-alpha-theme($theme);
+    @include ngx-color-checkboard-theme($theme);
+    @include ngx-color-hue-theme($theme);
+    @include ngx-color-raised-theme($theme);
+    @include ngx-color-editable-input-theme($theme);
+}

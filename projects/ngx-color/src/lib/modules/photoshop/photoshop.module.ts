@@ -4,20 +4,20 @@ import { PhotoshopPreviewsComponent } from './photoshop-previews.component';
 import { PhotoshopButtonComponent } from './photoshop-button.component';
 import { PhotoshopFieldsComponent } from './photoshop-fields.component';
 import { CommonModule } from '@angular/common';
-import { EditableInputModule, HueModule, AlphaModule, SwatchModule, SaturationModule } from '../../common/public_api';
+import { EditableInputModule, HueModule, AlphaModule, SwatchModule, SaturationModule } from '@ngx-color-project/common';
 
 @NgModule({
     declarations: [
         PhotoshopComponent,
         PhotoshopPreviewsComponent,
         PhotoshopButtonComponent,
-        PhotoshopFieldsComponent,
+        PhotoshopFieldsComponent
     ],
     exports: [
         PhotoshopComponent,
         PhotoshopPreviewsComponent,
         PhotoshopButtonComponent,
-        PhotoshopFieldsComponent,
+        PhotoshopFieldsComponent
     ],
     imports: [
         CommonModule,
@@ -25,7 +25,7 @@ import { EditableInputModule, HueModule, AlphaModule, SwatchModule, SaturationMo
         HueModule,
         AlphaModule,
         SwatchModule,
-        SaturationModule,
-    ],
+        SaturationModule
+    ]
 })
 export class ColorPhotoshopModule { }

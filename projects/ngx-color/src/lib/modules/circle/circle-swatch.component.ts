@@ -8,6 +8,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
+import { ColorEvent, NgxColor } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-circle-swatch',
@@ -19,11 +20,11 @@ import {
 export class CircleSwatchComponent implements OnChanges {
     @HostBinding('class.ngx-color-circle-swatch')
     _hostClass = true;
-    @Input() color: string;
+    @Input() color: NgxColor;
     @Input() circleSize = 28;
     @Input() circleSpacing = 14;
     @Input() focus = false;
-    @Output() onClick = new EventEmitter<any>();
+    @Output() onClick = new EventEmitter<ColorEvent>();
     @Output() onSwatchHover = new EventEmitter<any>();
     focusStyle: { [key: string]: string };
     swatchStyle: { [key: string]: string } = {
@@ -36,9 +37,10 @@ export class CircleSwatchComponent implements OnChanges {
         this.focusStyle = {
             boxShadow: `${this.color} 0px 0px 0px 3px inset`,
         };
-        this.swatchStyle.boxShadow = `inset 0 0 0 ${this.circleSize / 2}px ${this.color}`;
+        this.swatchStyle.boxShadow = `inset 0 0 0 ${this.circleSize / 2}px ${this.color.toRgbString()}`;
     }
-    handleClick({ hex, $event }) {
-        this.onClick.emit({ hex, $event });
+
+    handleClick({ color, $event }) {
+        this.onClick.emit({ color, $event });
     }
 }

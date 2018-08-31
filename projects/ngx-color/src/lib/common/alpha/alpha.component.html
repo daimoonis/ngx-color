@@ -1,11 +1,11 @@
-<div class="alpha" [style.border-radius]="radius">
-    <div class="alpha-checkboard">
+<div class="ngx-color-alpha-alpha" [style.border-radius]="radius">
+    <div class="ngx-color-alpha-alpha-checkboard">
         <ngx-color-checkboard></ngx-color-checkboard>
     </div>
-    <div class="alpha-gradient" [ngStyle]="gradient" [style.box-shadow]="shadow" [style.border-radius]="radius"></div>
-    <div ngxColorCoordinates (coordinatesChange)="handleChange($event)" class="alpha-container color-alpha-{{direction}}">
-        <div class="alpha-pointer" [style.left.%]="pointerLeft" [style.top.%]="pointerTop">
-            <div class="alpha-slider" [ngStyle]="pointer"></div>
+    <div class="ngx-color-alpha-gradient" [ngStyle]="gradient" [style.box-shadow]="shadow" [style.border-radius]="radius"></div>
+    <div ngxColorCoordinates (coordinatesChange)="handleChange($event)" class="ngx-color-alpha-container ngx-color-alpha-{{direction}}">
+        <div class="ngx-color-alpha-pointer" [style.left.%]="pointerLeft" [style.top.%]="pointerTop">
+            <div class="ngx-color-alpha-slider mat-elevation-z2" [ngStyle]="pointer"></div>
         </div>
     </div>
 </div>

@@ -6,7 +6,10 @@ import {
     Output,
     ViewEncapsulation,
     HostBinding,
+    ChangeDetectorRef,
 } from '@angular/core';
+import { ColorInput } from '@ctrl/tinycolor';
+import { NgxColor, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-swatches-group',
@@ -18,8 +21,21 @@ import {
 export class SwatchesGroupComponent {
     @HostBinding('class.ngx-color-swatches-group')
     _hostClass = true;
-    @Input() group: string[];
-    @Input() active: string;
-    @Output() onClick = new EventEmitter<any>();
-    @Output() onSwatchHover = new EventEmitter<any>();
+    _active: NgxColor;
+    @Input() group: NgxColor[];
+    @Input()
+    get active(): ColorInput {
+        return this._active;
+    }
+    set active(colorInput: ColorInput) {
+        const tinyColor = new NgxColor(colorInput);
+        if (tinyColor.isValid) {
+            this._active = tinyColor;
+            this.changeDetectorRef.markForCheck();
+        }
+    }
+    @Output() onClick = new EventEmitter<ColorEvent>();
+    @Output() onSwatchHover = new EventEmitter<ColorEvent>();
+
+    constructor(private changeDetectorRef: ChangeDetectorRef) { }
 }

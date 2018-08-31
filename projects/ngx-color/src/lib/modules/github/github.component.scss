@@ -1,8 +1,6 @@
 .ngx-color-github {
-    .github-picker {
-        background: rgb(255, 255, 255);
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 12px;
+    position: relative;
+    .ngx-color-github-picker {
         border-radius: 4px;
         position: relative;
         padding: 5px;
@@ -10,50 +8,55 @@
         flex-wrap: wrap;
         box-sizing: border-box;
     }
-    .triangleShadow {
+    .ngx-color-github-triangle,
+    .ngx-color-github-triangleShadow {
         position: absolute;
-        border-width: 8px;
         border-style: solid;
-        border-color: transparent transparent rgba(0, 0, 0, 0.15);
-        border-image: initial;
+        width: 0px;
+        height: 0px;
     }
-    .triangle {
-        position: absolute;
-        border-width: 7px;
-        border-style: solid;
-        border-color: transparent transparent rgb(255, 255, 255);
-        border-image: initial;
-    }
-    .hide-triangle>.triangle {
+    .ngx-color-github-hide-triangle>.ngx-color-github-triangle,
+    .ngx-color-github-hide-triangle>.ngx-color-github-triangleShadow {
         display: none;
     }
-    .hide-triangle>.triangleShadow {
-        display: none;
+    .ngx-color-github-top-left-triangle>.ngx-color-github-triangle {
+        top: -7px;
+        left: 12px;
+        border-width: 0px 6px 7px;
     }
-    .top-left-triangle>.triangle {
-        top: -14px;
-        left: 10px;
+    .ngx-color-github-top-left-triangle>.ngx-color-github-triangleShadow {
+        top: -7px;
+        left: 14px;
+        border-width: 0px 6px 7px;
     }
-    .top-left-triangle>.triangleShadow {
-        top: -16px;
-        left: 9px;
+    .ngx-color-github-top-right-triangle>.ngx-color-github-triangle {
+        top: -7px;
+        right: 12px;
+        border-width: 0px 6px 7px;
     }
-    .top-right-triangle>.triangle {
-        top: -14px;
+    .ngx-color-github-top-right-triangle>.ngx-color-github-triangleShadow {
+        top: -7px;
         right: 10px;
+        border-width: 0px 6px 7px;
     }
-    .top-right-triangle>.triangleShadow {
-        top: -16px;
-        right: 9px;
+    .ngx-color-github-bottom-right-triangle>.ngx-color-github-triangle {
+        bottom: -7px;
+        right: 12px;
+        border-width: 7px 6px 0px 6px;
     }
-    .bottom-right-triangle>.triangle {
-        top: 35px;
+    .ngx-color-github-bottom-right-triangle>.ngx-color-github-triangleShadow {
+        bottom: -8px;
         right: 10px;
-        transform: rotate(180deg);
+        border-width: 8px 7px 0px 7px;
     }
-    .bottom-right-triangle>.triangleShadow {
-        top: 37px;
-        right: 9px;
-        transform: rotate(180deg);
+    .ngx-color-github-bottom-left-triangle>.ngx-color-github-triangle {
+        bottom: -7px;
+        left: 12px;
+        border-width: 7px 6px 0px 6px;
+    }
+    .ngx-color-github-bottom-left-triangle>.ngx-color-github-triangleShadow {
+        bottom: -8px;
+        left: 14px;
+        border-width: 8px 7px 0px 7px;
     }
 }

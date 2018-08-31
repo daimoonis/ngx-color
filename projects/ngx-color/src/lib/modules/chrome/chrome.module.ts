@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ChromeComponent } from './chrome.component';
 import { ChromeFieldsComponent } from './chrome-fields.component';
 import { CommonModule } from '@angular/common';
-import { AlphaModule, CheckboardModule, EditableInputModule, HueModule, SaturationModule } from '../../common/public_api';
+import { AlphaModule, CheckboardModule, EditableInputModule, HueModule, SaturationModule } from '@ngx-color-project/common';
 
 @NgModule({
     declarations: [ChromeComponent, ChromeFieldsComponent],

@@ -1,54 +1,50 @@
 .ngx-color-chrome {
-    .chrome-picker {
-        background: #fff;
+    .ngx-color-chrome-picker {
         border-radius: 2px;
-        box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.3);
         box-sizing: initial;
         width: 225px;
-        font-family: 'Menlo';
     }
-    .chrome-controls {
+    .ngx-color-chrome-controls {
         display: flex;
     }
-    .chrome-color {
+    .ngx-color-chrome-color {
         width: 42px;
     }
-    .chrome-body {
+    .ngx-color-chrome-body {
         padding: 14px 14px 12px;
     }
-    .chrome-active {
+    .ngx-color-chrome-active {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        border-radius: 20px;
-        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
         z-index: 2;
     }
-    .chrome-swatch {
+    .ngx-color-chrome-swatch {
         width: 28px;
         height: 28px;
         border-radius: 15px;
         position: relative;
         overflow: hidden;
     }
-    .saturation {
+    .ngx-color-chrome-saturation {
         width: 100%;
         padding-bottom: 55%;
         position: relative;
         border-radius: 2px 2px 0 0;
         overflow: hidden;
     }
-    .chrome-toggles {
+    .ngx-color-chrome-toggles {
         flex: 1;
     }
-    .chrome-hue {
+    .ngx-color-chrome-hue {
         height: 10px;
         position: relative;
         margin-bottom: 8px;
     }
-    .chrome-alpha {
+    .ngx-color-chrome-alpha {
         height: 10px;
         position: relative;
     }

@@ -3,7 +3,7 @@ import { Component, VERSION } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-  <footer class="footer mb-4 mt-5">
+  <footer class="footer mt-5">
     Angular {{ version }}
     <br>
     Released under the
@@ -19,7 +19,6 @@ import { Component, VERSION } from '@angular/core';
         text-align: center;
         font-size: 70%;
         color: #999;
-        font-family: var(--font-family-monospace)
       }
     `,
   ],

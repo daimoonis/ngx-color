@@ -14,6 +14,15 @@
             <div class="mt-4">
                 <mdo-github-button size="large" count="true" user="daimoonis" repo="ngx-color">
                 </mdo-github-button>
+                <span class="description ml-5">Theme:</span>
+                <mat-menu #colorMenu="matMenu">
+                    <button mat-menu-item (click)="setTheme('ngx-color-light-theme')">Light theme</button>
+                    <button mat-menu-item (click)="setTheme('ngx-color-dark-theme')">Dark theme</button>
+                </mat-menu>
+
+                <button mat-icon-button [matMenuTriggerFor]="colorMenu" class="primary-bg-color primary-text-color ml-1">
+                    <mat-icon>arrow_drop_down</mat-icon>
+                </button>
             </div>
         </div>
         <div class="col-md-6">
@@ -30,7 +39,7 @@
         <div class="col-md-4 mt-3">
             <div class="d-flex justify-content-center justify-content-md-start">
                 <div style="width: 220px; display: inline-block;">
-                    <ngx-color-sketch [color]="state" (onChangeComplete)="changeComplete($event)">
+                    <ngx-color-sketch [color]="state" [presetColors]="sketchPresetColors" (onChangeComplete)="changeComplete($event)">
                     </ngx-color-sketch>
                     <div class="text-center label">Sketch</div>
                 </div>

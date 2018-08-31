@@ -7,8 +7,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-
-import { isValidHex, HSV, RGB } from '../../common/public_api';
+import { NgxColor, ColorEvent } from '@ngx-color-project/common';
 
 @Component({
     selector: 'ngx-color-photoshop-fields',
@@ -20,10 +19,8 @@ import { isValidHex, HSV, RGB } from '../../common/public_api';
 export class PhotoshopFieldsComponent {
     @HostBinding('class.ngx-color-photoshop-fields')
     _hostClass = true;
-    @Input() rgb: RGB;
-    @Input() hsv: HSV;
-    @Input() hex: string;
-    @Output() onChange = new EventEmitter<any>();
+    @Input() color: NgxColor;
+    @Output() onChange = new EventEmitter<ColorEvent>();
     RGBinput: { [key: string]: string } = {
         marginLeft: '35%',
         width: '40%',
@@ -75,36 +72,31 @@ export class PhotoshopFieldsComponent {
     round(v) {
         return Math.round(v);
     }
+
     handleValueChange({ data, $event }) {
         if (data['#']) {
-            if (isValidHex(data['#'])) {
-                this.onChange.emit({
-                    data: {
-                        hex: data['#'],
-                        source: 'hex',
-                    },
-                    $event,
-                });
+            const newColor = new NgxColor(data['#']);
+            if (newColor.isValid) {
+                this.onChange.emit({ color: newColor, $event });
             }
         } else if (data.r || data.g || data.b) {
             this.onChange.emit({
-                data: {
-                    r: data.r || this.rgb.r,
-                    g: data.g || this.rgb.g,
-                    b: data.b || this.rgb.b,
-                    source: 'rgb',
-                },
-                $event,
+                color: new NgxColor({
+                    r: data.r || this.color.r,
+                    g: data.g || this.color.g,
+                    b: data.b || this.color.b
+                }),
+                $event
             });
         } else if (data.h || data.s || data.v) {
+            const hsvColor = this.color.toHsv();
             this.onChange.emit({
-                data: {
-                    h: data.h || this.hsv.h,
-                    s: data.s || this.hsv.s,
-                    v: data.v || this.hsv.v,
-                    source: 'hsv',
-                },
-                $event,
+                color: new NgxColor({
+                    h: data.h || hsvColor.h,
+                    s: data.s || hsvColor.s,
+                    v: data.v || hsvColor.v
+                }),
+                $event
             });
         }
     }

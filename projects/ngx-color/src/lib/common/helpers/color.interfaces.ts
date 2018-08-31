@@ -1,3 +1,5 @@
+import { NgxColor } from './ngx-color';
+
 export interface RGB {
     r: number;
     g: number;
@@ -43,6 +45,11 @@ export interface Color {
     hsv: HSVA;
     oldHue: number;
     source: string;
+}
+
+export interface ColorEvent {
+    $event?: Event;
+    color: NgxColor;
 }
 
 export interface Shape {

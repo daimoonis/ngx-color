@@ -21,37 +21,26 @@ describe('AlphaComponent', () => {
 
         TestBed.compileComponents();
     }));
-    it(`should apply className to root element`, () => {
-        const fixture = TestBed.createComponent(AlphaPickerComponent);
-        const testComponent = fixture.componentInstance;
-        testComponent.className = 'classy';
-        fixture.detectChanges();
-        const div = fixture.debugElement.query(By.css('.alpha-picker'));
-        expect(div.nativeElement.classList.contains('classy')).toBe(true);
-    });
     it(`should draw vertical`, () => {
         const fixture = TestBed.createComponent(AlphaTestApp);
         const testComponent = fixture.componentInstance;
         fixture.detectChanges();
         testComponent.direction = 'vertical';
         fixture.detectChanges();
-        const div = fixture.debugElement.query(By.css('.alpha-container'));
-        expect(div.nativeElement.classList.contains('color-alpha-vertical')).toBe(true);
+        const div = fixture.debugElement.query(By.css('.ngx-color-alpha-container'));
+        expect(div.nativeElement.classList.contains('ngx-color-alpha-vertical')).toBe(true);
     });
 });
-
 
 @Component({
     selector: 'ngx-color-test-app',
     template: `
   <ngx-color-alpha-picker
-    [className]="className"
     [direction]="direction"
   >
   </ngx-color-alpha-picker>
   `,
 })
 class AlphaTestApp {
-    className = '';
     direction = 'horizontal';
 }

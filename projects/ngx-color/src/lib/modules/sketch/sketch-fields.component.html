@@ -1,21 +1,22 @@
-<div class="ngx-color-sketch-fields-main-fields">
-    <div class="ngx-color-sketch-fields-double">
-        <ngx-color-editable-input [style]="{ input: input, label: label }" label="hex" [value]="hex.replace('#', '')" (onChange)="handleChange($event)"></ngx-color-editable-input>
+<div class="ngx-color-sketch-fields-all-fields">
+    <div class="ngx-color-sketch-fields-sketch-double">
+        <ngx-color-editable-input label="hex" [value]="_color.toHexString().replace('#', '')"
+            (onChange)="handleChange($event)"></ngx-color-editable-input>
     </div>
-    <div class="ngx-color-sketch-fields-single">
-        <ngx-color-editable-input [style]="{ input: input, label: label }" label="r" [value]="rgb.r" (onChange)="handleChange($event)"
+    <div class="ngx-color-sketch-fields-sketch-single">
+        <ngx-color-editable-input label="r" [value]="_color.toRgb().r" (onChange)="handleChange($event)"
             [dragLabel]="true" [dragMax]="255"></ngx-color-editable-input>
     </div>
-    <div class="ngx-color-sketch-fields-single">
-        <ngx-color-editable-input [style]="{ input: input, label: label }" label="g" [value]="rgb.g" (onChange)="handleChange($event)"
+    <div class="ngx-color-sketch-fields-sketch-single">
+        <ngx-color-editable-input label="g" [value]="_color.toRgb().g" (onChange)="handleChange($event)"
             [dragLabel]="true" [dragMax]="255"></ngx-color-editable-input>
     </div>
-    <div class="ngx-color-sketch-fields-single">
-        <ngx-color-editable-input [style]="{ input: input, label: label }" label="b" [value]="rgb.b" (onChange)="handleChange($event)"
+    <div class="ngx-color-sketch-fields-sketch-single">
+        <ngx-color-editable-input label="b" [value]="_color.toRgb().b" (onChange)="handleChange($event)"
             [dragLabel]="true" [dragMax]="255"></ngx-color-editable-input>
     </div>
-    <div class="ngx-color-sketch-fields-alpha" *ngIf="disableAlpha === false">
-        <ngx-color-editable-input [style]="{ input: input, label: label }" label="a" [value]="round(rgb.a * 100)" (onChange)="handleChange($event)"
+    <div class="ngx-color-sketch-fields-sketch-alpha" *ngIf="disableAlpha === false">
+        <ngx-color-editable-input label="a" [value]="round(_color.toRgb().a * 100)" (onChange)="handleChange($event)"
             [dragLabel]="true" [dragMax]="100"></ngx-color-editable-input>
     </div>
 </div>

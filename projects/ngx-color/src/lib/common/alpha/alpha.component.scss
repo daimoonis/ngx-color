@@ -1,12 +1,12 @@
 .ngx-color-alpha {
-    .alpha {
+    .ngx-color-alpha-alpha {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
     }
-    .alpha-checkboard {
+    .ngx-color-alpha-checkboard {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -14,27 +14,26 @@
         right: 0;
         overflow: hidden;
     }
-    .alpha-gradient {
+    .ngx-color-alpha-gradient {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
     }
-    .alpha-container {
+    .ngx-color-alpha-container {
         position: relative;
         height: 100%;
         margin: 0 3px;
     }
-    .alpha-pointer {
+    .ngx-color-alpha-pointer {
         position: absolute;
     }
-    .alpha-slider {
+    .ngx-color-alpha-slider {
+        cursor: pointer;
         width: 4px;
         border-radius: 1px;
         height: 8px;
-        box-shadow: 0 0 2px rgba(0, 0, 0, .6);
-        background: #fff;
         margin-top: 1px;
         transform: translateX(-2px);
     }
