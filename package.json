@@ -10,7 +10,7 @@
     "start": "ng serve",
     "build:ngx-color:prod": "ng build --app ngx-color --environment production",
     "build:ngx-color-app": "ng build --app ngx-color-app --environment production",
-    "ghpages": "ng build --prod --baseHref='/ngx-color/'",
+    "ghpages": "ng build --prod",
     "test": "ng test --watch=false --code-coverage --browsers=ChromeCI",
     "test:watch": "ng test --browsers=ChromeCI",
     "test:ci": "ng test --watch=false --code-coverage --no-progress --browsers=ChromeCI",

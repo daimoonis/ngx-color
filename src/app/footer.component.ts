@@ -7,9 +7,9 @@ import { Component, VERSION } from '@angular/core';
     Angular {{ version }}
     <br>
     Released under the
-    <a href="https://github.com/typectrl/ngx-codemirror/blob/master/LICENSE">MIT</a> license
+    <a href="https://github.com/daimoonis/ngx-color/blob/master/LICENSE">MIT</a> license
     <br>
-    Listed on <a href="https://angular.parts/package/ngx-color">angular.parts</a>
+    Listed on <a href="https://www.npmjs.com/package/@daimoonis/ngx-color">npm</a>
   </footer>
   `,
   styles: [
