@@ -27,7 +27,25 @@ describe('SketchComponent', () => {
         });
 
         it('should check default settings', () => {
-            expect(sketchInstance.presetColors).toEqual([]);
+            expect(sketchInstance.presetColors).toEqual(
+                [
+                    new NgxColor('#D0021B'),
+                    new NgxColor('#F5A623'),
+                    new NgxColor('#F8E71C'),
+                    new NgxColor('#8B572A'),
+                    new NgxColor('#7ED321'),
+                    new NgxColor('#417505'),
+                    new NgxColor('#BD10E0'),
+                    new NgxColor('#9013FE'),
+                    new NgxColor('#4A90E2'),
+                    new NgxColor('#50E3C2'),
+                    new NgxColor('#B8E986'),
+                    new NgxColor('#000000'),
+                    new NgxColor('#4A4A4A'),
+                    new NgxColor('#9B9B9B'),
+                    new NgxColor('#FFFFFF')
+                ]
+            );
         });
 
         it('should sketch component have ngx-color-sketch class', () => {

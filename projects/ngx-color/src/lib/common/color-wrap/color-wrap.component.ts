@@ -8,7 +8,7 @@ import {
     ChangeDetectorRef,
 } from '@angular/core';
 
-import { Subscription, noop, Subject } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { ColorInput } from '@ctrl/tinycolor';
 import { NgxColor } from '../helpers/ngx-color';
@@ -55,7 +55,6 @@ export class ColorWrap implements OnInit, OnDestroy {
             debounceTime(100),
             distinctUntilChanged(),
         ).subscribe((x) => {
-            console.log('complete');
             this.onChangeComplete.emit(x);
         });
     }

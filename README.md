@@ -27,6 +27,7 @@
 * each component uses encapsulation strategy as ViewEncapsulation.None
 * fix for sketch component for IE 11
 * code refactored
+* use of @ctrl/tinycolor library (allow any color input of ColorInput interface)
 * new _material-theming.scss available in bundle with Material theming support for all components
 * standard .css available in two modes as light and dark version (light-theme.min.css and dark-theme.min.css)
 
@@ -36,6 +37,34 @@
 
 ```sh
 npm install @daimoonis/ngx-color --save
+```
+
+### Include styles
+
+##### sass
+
+```scss
+@import '~@daimoonis/ngx-color/material-theming';
+@import '~@angular/material/theming';
+@include mat-core();
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$candy-app-warn: mat-palette($mat-red);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+// @include angular-material-theme($candy-app-theme);
+@include ngx-color-theme($candy-app-theme);
+```
+
+##### css
+
+```css
+@import '~@daimoonis/ngx-color/light-theme.min.css';
+```
+
+or
+
+```css
+@import '~@daimoonis/ngx-color/dark-theme.min.css';
 ```
 
 ### Include Component
@@ -87,8 +116,8 @@ the state of a parent component.
 
 Color accepts ColorInput of these interfaces: 
 ```ts
-type ColorInput = string | RGB | RGBA | HSL | HSLA | HSV | HSVA | TinyColor;
-// TinyColor is instance from @ctrl/tinycolor library
+string | RGB | RGBA | HSL | HSLA | HSV | HSVA | TinyColor;
+// TinyColor is an instance of class from @ctrl/tinycolor library
 ```
 
 in details:

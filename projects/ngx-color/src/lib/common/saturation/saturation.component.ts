@@ -9,7 +9,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 
-import { HSLA, HSVA, HSVAsource } from '../helpers/color.interfaces';
+import { HSVA } from '../helpers/color.interfaces';
 import { NgxColor } from '../helpers/ngx-color';
 
 @Component({

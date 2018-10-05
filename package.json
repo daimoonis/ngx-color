@@ -40,7 +40,7 @@
     "core-js": "2.5.7",
     "lodash": "4.17.10",
     "material-colors": "1.2.6",
-    "rxjs": "6.3.1",
+    "rxjs": "6.3.3",
     "zone.js": "0.8.26"
   },
   "devDependencies": {

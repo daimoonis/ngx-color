@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ColorAlphaModule } from './alpha-picker.module';
-import { AlphaPickerComponent } from './alpha-picker.component';
 
 export const red = {
     hsl: { a: 1, h: 0, l: 0.5, s: 1 },

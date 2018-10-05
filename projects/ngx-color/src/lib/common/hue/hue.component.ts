@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 
 import { NgxColor } from '../helpers/ngx-color';
-import { HSLA } from '../helpers/public_api';
 
 export type HueDirection = 'horizontal' | 'vertical';
 

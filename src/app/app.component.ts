@@ -2,7 +2,6 @@ import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core
 
 import { ColorEvent } from '@ngx-color-project/common';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { TinyColor } from '@ctrl/tinycolor';
 
 @Component({
     selector: 'app-root',
@@ -21,23 +20,6 @@ export class AppComponent implements OnInit {
         a: 1,
     };
 
-    sketchPresetColors = [
-        '#D0021B',
-        '#F5A623',
-        '#F8E71C',
-        '#8B572A',
-        '#7ED321',
-        '#417505',
-        '#BD10E0',
-        '#9013FE',
-        '#4A90E2',
-        '#50E3C2',
-        '#B8E986',
-        '#000000',
-        '#4A4A4A',
-        '#9B9B9B',
-        '#FFFFFF'
-    ];
     // rgb(255, 0, 127) nice color
     constructor(public overlayContainer: OverlayContainer) { }
 
