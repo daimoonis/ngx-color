@@ -187,21 +187,7 @@ export class NameComponent {
 
   handleChange($event: ColorEvent) {
     console.log($event.color);
-    // color = {
-    //   hex: '#333',
-    //   rgb: {
-    //     r: 51,
-    //     g: 51,
-    //     b: 51,
-    //     a: 1,
-    //   },
-    //   hsl: {
-    //     h: 0,
-    //     s: 0,
-    //     l: .20,
-    //     a: 1,
-    //   },
-    // }
+    // color = NgxColor instance which is mostly a @ctrl/tinycolor instance
   }
 }
 ```
