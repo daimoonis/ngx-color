@@ -5,7 +5,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { NgxColor } from '@ngx-color-project/common';
+import { NgxColor } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-photoshop-previews',

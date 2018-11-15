@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { ColorEvent } from '@ngx-color-project/common';
+import { ColorEvent } from '@daimoonis/ngx-color';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({

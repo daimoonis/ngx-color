@@ -9,7 +9,7 @@ import {
     ChangeDetectorRef,
 } from '@angular/core';
 import { ColorInput } from '@ctrl/tinycolor';
-import { NgxColor, ColorEvent } from '@ngx-color-project/common';
+import { NgxColor, ColorEvent } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-swatches-group',

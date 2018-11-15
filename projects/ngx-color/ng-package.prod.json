@@ -2,6 +2,12 @@
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../../dist/ngx-color",
     "lib": {
-        "entryFile": "src/public_api.ts"
+        "entryFile": "src/public_api.ts",
+        "umdModuleIds": {
+            "lodash": "lodash",
+            "@ctrl/tinycolor": "@ctrl/tinycolor",
+            "@ngx-color-project/common": "@ngx-color-project/common",
+            "material-colors": "material-colors"
+        }
     }
 }

@@ -27,7 +27,7 @@ import {
     yellow,
 } from 'material-colors';
 import { ColorInput } from '@ctrl/tinycolor';
-import { ColorWrap, NgxColor, parseColors } from '@ngx-color-project/common';
+import { ColorWrap, NgxColor, parseColors } from '../../common/public_api';
 import { isNil } from 'lodash';
 
 @Component({

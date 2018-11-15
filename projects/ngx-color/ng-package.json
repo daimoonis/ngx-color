@@ -3,6 +3,12 @@
     "dest": "../../dist/ngx-color",
     "deleteDestPath": false,
     "lib": {
-        "entryFile": "src/public_api.ts"
+        "entryFile": "src/public_api.ts",
+        "umdModuleIds": {
+            "lodash": "lodash",
+            "@ctrl/tinycolor": "@ctrl/tinycolor",
+            "@ngx-color-project/common": "@ngx-color-project/common",
+            "material-colors": "material-colors"
+        }
     }
 }

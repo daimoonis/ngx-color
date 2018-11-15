@@ -7,7 +7,7 @@ import {
     ChangeDetectorRef,
     OnInit
 } from '@angular/core';
-import { ColorWrap, NgxColor, parseColors } from '@ngx-color-project/common';
+import { ColorWrap, NgxColor, parseColors } from '../../common/public_api';
 import { ColorInput } from '@ctrl/tinycolor';
 import { isNil } from 'lodash';
 import { Subject } from 'rxjs';

@@ -17,7 +17,7 @@ import {
     ColorSliderModule,
     ColorSwatchesModule,
     ColorTwitterModule
-} from '@ngx-color-project/modules';
+} from '@daimoonis/ngx-color';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer.component';
 import { MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';

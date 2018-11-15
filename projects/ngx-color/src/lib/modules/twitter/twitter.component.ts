@@ -2,7 +2,7 @@ import {
     ChangeDetectionStrategy, Component, Input, ViewEncapsulation,
     HostBinding, ChangeDetectorRef, OnInit, OnDestroy
 } from '@angular/core';
-import { ColorWrap, parseColors, NgxColor } from '@ngx-color-project/common';
+import { ColorWrap, parseColors, NgxColor } from '../../common/public_api';
 import { ColorInput } from '@ctrl/tinycolor';
 import { isNil } from 'lodash';
 import { Subject } from 'rxjs';

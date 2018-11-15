@@ -5,7 +5,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { ColorWrap } from '@ngx-color-project/common';
+import { ColorWrap } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-slider',

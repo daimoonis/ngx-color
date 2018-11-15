@@ -9,7 +9,7 @@ import {
     ViewEncapsulation,
     ChangeDetectorRef,
 } from '@angular/core';
-import { NgxColor, HSLA, RGBA } from '@ngx-color-project/common';
+import { NgxColor, HSLA, RGBA } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-chrome-fields',

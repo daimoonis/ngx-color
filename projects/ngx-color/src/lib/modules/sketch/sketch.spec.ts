@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { ColorSketchModule } from './sketch.module';
 import { SketchComponent } from './sketch.component';
-import { NgxColor } from '@ngx-color-project/common';
+import { NgxColor } from '../../common/public_api';
 import { ColorInput } from '@ctrl/tinycolor';
 
 describe('SketchComponent', () => {

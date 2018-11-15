@@ -3,7 +3,7 @@ import { SwatchesComponent } from './swatches.component';
 import { SwatchesGroupComponent } from './swatches-group.component';
 import { SwatchesColorComponent } from './swatches-color.component';
 import { CommonModule } from '@angular/common';
-import { SwatchModule, RaisedModule } from '@ngx-color-project/common';
+import { SwatchModule, RaisedModule } from '../../common/public_api';
 
 @NgModule({
     declarations: [

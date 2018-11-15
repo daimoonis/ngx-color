@@ -7,7 +7,7 @@ import {
     HostBinding,
     ViewEncapsulation,
 } from '@angular/core';
-import { NgxColor, ColorEvent } from '@ngx-color-project/common';
+import { NgxColor, ColorEvent } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-github-swatch',

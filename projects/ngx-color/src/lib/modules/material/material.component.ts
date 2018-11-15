@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation } from '@angular/core';
-import { ColorWrap, NgxColor } from '@ngx-color-project/common';
+import { ColorWrap, NgxColor } from '../../common/public_api';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 

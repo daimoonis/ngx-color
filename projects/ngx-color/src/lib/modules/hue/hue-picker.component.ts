@@ -7,7 +7,7 @@ import {
     ChangeDetectorRef
 } from '@angular/core';
 
-import { ColorWrap, NgxColor } from '@ngx-color-project/common';
+import { ColorWrap, NgxColor } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-hue-picker',

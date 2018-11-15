@@ -8,7 +8,7 @@ import {
     ViewEncapsulation,
     ChangeDetectorRef,
 } from '@angular/core';
-import { NgxColor, ColorEvent, HSL, HSLA } from '@ngx-color-project/common';
+import { NgxColor, ColorEvent, HSL, HSLA } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-sketch-fields',

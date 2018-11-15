@@ -19,11 +19,11 @@
             "dom"
         ],
         "paths": {
-            "@ngx-color-project/common": [
-                "./projects/ngx-color/src/lib/common/public_api.ts"
+            "@daimoonis/ngx-color": [
+                "./dist/ngx-color"
             ],
-            "@ngx-color-project/modules": [
-                "./projects/ngx-color/src/lib/modules/public_api.ts"
+            "@daimoonis/ngx-color/common": [
+                "./projects/ngx-color/lib/common"
             ]
         }
     }

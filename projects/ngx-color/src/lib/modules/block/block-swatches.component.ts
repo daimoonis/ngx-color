@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy, ViewEncapsulation, HostBinding } from '@angular/core';
-import { ColorEvent, NgxColor } from '@ngx-color-project/common';
+import { ColorEvent, NgxColor } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-block-swatches',

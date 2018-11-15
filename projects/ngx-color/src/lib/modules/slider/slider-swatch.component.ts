@@ -8,7 +8,7 @@ import {
     ViewEncapsulation,
     ChangeDetectorRef,
 } from '@angular/core';
-import { NgxColor, HSL, ColorEvent } from '@ngx-color-project/common';
+import { NgxColor, HSL, ColorEvent } from '../../common/public_api';
 
 @Component({
     selector: 'ngx-color-slider-swatch',
