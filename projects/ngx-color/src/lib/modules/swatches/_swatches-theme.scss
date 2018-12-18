@@ -9,3 +9,11 @@
         }
     }
 }
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-swatches-theme-complete($theme) {
+    @include ngx-color-swatches-theme($theme);
+}

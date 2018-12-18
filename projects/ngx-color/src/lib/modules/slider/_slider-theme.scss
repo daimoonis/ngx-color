@@ -1,3 +1,7 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
 @mixin ngx-color-slider-theme($theme) {
     .ngx-color-slider {
         .ngx-color-hue {
@@ -7,4 +11,15 @@
             }
         }
     }
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-slider-theme-complete($theme) {
+    .ngx-color-slider {
+        @include ngx-color-hue-theme($theme);
+    }
+    @include ngx-color-slider-theme($theme);
 }

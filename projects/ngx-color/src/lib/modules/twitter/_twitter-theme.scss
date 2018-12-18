@@ -1,3 +1,7 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
 @mixin ngx-color-twitter-theme($theme) {
     $primary: map-get($theme, primary);
     $foreground: map-get($theme, foreground);
@@ -37,4 +41,15 @@
             border-color: rgba(0, 0, 0, 0.1) transparent rgba(0, 0, 0, 0.1);
         }
     }
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-twitter-theme-complete($theme) {
+    .ngx-color-twitter {
+        @include ngx-color-editable-input-theme($theme);
+    }
+    @include ngx-color-twitter-theme($theme);
 }

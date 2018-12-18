@@ -1,0 +1,15 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
+@mixin ngx-color-circle-theme($theme) {
+    // empty for now
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-circle-theme-complete($theme) {
+    @include ngx-color-circle-theme($theme);
+}

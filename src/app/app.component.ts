@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
     changeComplete($event: ColorEvent) {
         this.state = $event.color.toHsl();
-        this.primaryColor = $event.color.toHexString();
+        this.primaryColor = $event.color.toRgbString();
     }
 
     setTheme(theme: string) {

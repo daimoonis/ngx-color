@@ -1,3 +1,7 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
 @mixin ngx-color-github-theme($theme) {
     $foreground: map-get($theme, foreground);
     $background: map-get($theme, background);
@@ -30,4 +34,12 @@
             }
         }
     }
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-github-theme-complete($theme) {
+    @include ngx-color-github-theme($theme);
 }

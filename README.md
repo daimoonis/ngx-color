@@ -1,4 +1,7 @@
 # Color pickers for Angular
+
+Set of color pickers and common components to be used as building blocks for custom colorpickers.
+
 [![npm version](https://badge.fury.io/js/%40daimoonis%2Fngx-color.svg)](https://badge.fury.io/js/%40daimoonis%2Fngx-color)
 [![travis](https://travis-ci.com/daimoonis/ngx-color.svg?branch=master)](https://travis-ci.com/daimoonis/ngx-color)
 [![codecov](https://codecov.io/gh/daimoonis/ngx-color/branch/master/graph/badge.svg)](https://codecov.io/gh/daimoonis/ngx-color)
@@ -30,6 +33,7 @@
 * use of @ctrl/tinycolor library (allow any color input of ColorInput interface)
 * new _material-theming.scss available in bundle with Material theming support for all components
 * standard .css available in two modes as light and dark version (light-theme.min.css and dark-theme.min.css)
+* ability to use specific component styles mixin in consumer application or whole bundle
 
 ## Getting Started
 

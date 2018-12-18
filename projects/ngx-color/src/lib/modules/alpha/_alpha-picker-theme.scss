@@ -1,0 +1,18 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
+ @mixin ngx-color-alpha-picker-theme($theme) {
+    // empty for now
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-alpha-picker-theme-complete($theme) {
+    .ngx-color-alpha-picker {
+        @include ngx-color-alpha-theme($theme);
+    }
+    @include ngx-color-alpha-picker-theme($theme);
+}

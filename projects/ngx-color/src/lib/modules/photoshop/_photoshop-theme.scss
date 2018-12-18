@@ -1,74 +1,93 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
 @mixin ngx-color-photoshop-theme($theme) {
     $primary: map-get($theme, primary);
     $foreground: map-get($theme, foreground);
     $background: map-get($theme, background);
-    .ngx-color-photoshop-picker {
-        @if map-get($theme, is-dark) {
-            background-color: mat-color($background, card);
-        }
-        @else {
-            background-color: map_get($mat-grey, 300);
-        }
-        color: mat-color($foreground, text);
-        @include mat-elevation(8);
-    }
-    .ngx-color-photoshop-head {
-        @if map-get($theme, is-dark) {
-            background-image: linear-gradient( -180deg, map_get($mat-grey, 800) 0%, map_get($mat-grey, 600) 100%);
-            border-bottom: 1px solid map_get($mat-grey, 400);
-        }
-        @else {
-            background-image: linear-gradient( -180deg, map_get($mat-grey, 400) 0%, map_get($mat-grey, 200) 100%);
-            border-bottom: 1px solid map_get($mat-grey, 400);
-        }
-        box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset,
-        rgba(0, 0, 0, 0.02) 0px -1px 0px 0px inset;
-    }
-    .ngx-color-photoshop-hue,
-    .ngx-color-photoshop-saturation {
-        @if map-get($theme, is-dark) {
-            border: 2px solid map_get($mat-grey, 300);
-        }
-        @else {
-            border: 2px solid map_get($mat-grey, 500);
-        }
-    }
-    .ngx-color-photoshop-previews {
-        .ngx-color-photoshop-previews-swatches {
-            border: 1px solid #B3B3B3;
-            border-bottom: 1px solid #F0F0F0;
-        }
-        .ngx-color-photoshop-previews-new {
-            box-shadow: inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000;
-        }
-        .ngx-color-photoshop-previews-current {
-            box-shadow: inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000;
-        }
-    }
-    .ngx-color-photoshop-button {
-        .ngx-color-photoshop-button-button {
+    .ngx-color-photoshop {
+        .ngx-color-photoshop-picker {
             @if map-get($theme, is-dark) {
-                background-image: linear-gradient( -180deg, map_get($mat-grey, 700) 0%, map_get($mat-grey, 600) 100%);
-                border: 1px solid map_get($mat-grey, 300);
+                background-color: mat-color($background, card);
+            }
+            @else {
+                background-color: map_get($mat-grey, 300);
+            }
+            color: mat-color($foreground, text);
+            @include mat-elevation(8);
+        }
+        .ngx-color-photoshop-head {
+            @if map-get($theme, is-dark) {
+                background-image: linear-gradient( -180deg, map_get($mat-grey, 800) 0%, map_get($mat-grey, 600) 100%);
+                border-bottom: 1px solid map_get($mat-grey, 400);
             }
             @else {
                 background-image: linear-gradient( -180deg, map_get($mat-grey, 400) 0%, map_get($mat-grey, 200) 100%);
-                border: 1px solid map_get($mat-grey, 500);
+                border-bottom: 1px solid map_get($mat-grey, 400);
             }
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset,
+            rgba(0, 0, 0, 0.02) 0px -1px 0px 0px inset;
         }
-        .ngx-color-photoshop-button-button.active {
-            @include mat-elevation(3);
-        }
-    }
-    .ngx-color-photoshop-fields {
-        .ngx-color-editable-input .ngx-color-editable-input-value {
+        .ngx-color-photoshop-hue,
+        .ngx-color-photoshop-saturation {
             @if map-get($theme, is-dark) {
-                background-color: mat-color($mat-grey, 600);
+                border: 2px solid map_get($mat-grey, 300);
             }
             @else {
-                background-color: map_get($mat-grey, 200);
+                border: 2px solid map_get($mat-grey, 500);
             }
-            color: mat-color($foreground, text);
+        }
+        .ngx-color-photoshop-previews {
+            .ngx-color-photoshop-previews-swatches {
+                border: 1px solid #B3B3B3;
+                border-bottom: 1px solid #F0F0F0;
+            }
+            .ngx-color-photoshop-previews-new {
+                box-shadow: inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000;
+            }
+            .ngx-color-photoshop-previews-current {
+                box-shadow: inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000;
+            }
+        }
+        .ngx-color-photoshop-button {
+            .ngx-color-photoshop-button-button {
+                @if map-get($theme, is-dark) {
+                    background-image: linear-gradient( -180deg, map_get($mat-grey, 700) 0%, map_get($mat-grey, 600) 100%);
+                    border: 1px solid map_get($mat-grey, 300);
+                }
+                @else {
+                    background-image: linear-gradient( -180deg, map_get($mat-grey, 400) 0%, map_get($mat-grey, 200) 100%);
+                    border: 1px solid map_get($mat-grey, 500);
+                }
+            }
+            .ngx-color-photoshop-button-button.active {
+                @include mat-elevation(3);
+            }
+        }
+        .ngx-color-photoshop-fields {
+            .ngx-color-editable-input .ngx-color-editable-input-value {
+                @if map-get($theme, is-dark) {
+                    background-color: mat-color($mat-grey, 600);
+                }
+                @else {
+                    background-color: map_get($mat-grey, 200);
+                }
+                color: mat-color($foreground, text);
+            }
         }
     }
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+
+@mixin ngx-color-photoshop-theme-complete($theme) {
+    .ngx-color-photoshop {
+        @include ngx-color-hue-theme($theme);
+        @include ngx-color-editable-input-theme($theme);
+    }
+    @include ngx-color-photoshop-theme($theme);
 }

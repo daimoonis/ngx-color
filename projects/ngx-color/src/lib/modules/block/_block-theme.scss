@@ -1,3 +1,7 @@
+/*
+ * Single mixin to be used as part of whole library theme.
+ * For complete component styling use *-complete mixin.
+ */
 @mixin ngx-color-block-theme($theme) {
     $foreground: map-get($theme, foreground);
     $background: map-get($theme, background);
@@ -16,4 +20,16 @@
             }
         }
     }
+}
+
+/*
+ * Complete mixin to be used as standalone styling for whole component.
+ * Includes other component mixins which this component uses in its template.
+ */
+ @mixin ngx-color-block-theme-complete($theme) {
+    .ngx-color-block {
+        @include ngx-color-checkboard-theme($theme);
+        @include ngx-color-editable-input-theme($theme);
+    }
+    @include ngx-color-block-theme($theme);
 }
