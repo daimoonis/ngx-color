@@ -6,26 +6,6 @@ import {
     ViewEncapsulation,
     ChangeDetectorRef,
 } from '@angular/core';
-import {
-    amber,
-    blue,
-    blueGrey,
-    brown,
-    cyan,
-    deepOrange,
-    deepPurple,
-    green,
-    indigo,
-    lightBlue,
-    lightGreen,
-    lime,
-    orange,
-    pink,
-    purple,
-    red,
-    teal,
-    yellow,
-} from 'material-colors';
 import { ColorInput } from '@ctrl/tinycolor';
 import { ColorWrap, NgxColor, parseColors2 } from '../../common/public_api';
 import { isNil } from 'lodash';
@@ -38,134 +18,30 @@ import { isNil } from 'lodash';
     encapsulation: ViewEncapsulation.None
 })
 export class SwatchesComponent extends ColorWrap {
+    /**
+     * Based on material palette colors, takes colors from palettes as these definitions from each:
+     * 900, 700, 500, 300, 100
+     */
     public static readonly DEFAULT_COLORS = [
-        [
-            red['900'],
-            red['700'],
-            red['500'],
-            red['300'],
-            red['100'],
-        ],
-        [
-            pink['900'],
-            pink['700'],
-            pink['500'],
-            pink['300'],
-            pink['100'],
-        ],
-        [
-            purple['900'],
-            purple['700'],
-            purple['500'],
-            purple['300'],
-            purple['100'],
-        ],
-        [
-            deepPurple['900'],
-            deepPurple['700'],
-            deepPurple['500'],
-            deepPurple['300'],
-            deepPurple['100'],
-        ],
-        [
-            indigo['900'],
-            indigo['700'],
-            indigo['500'],
-            indigo['300'],
-            indigo['100'],
-        ],
-        [
-            blue['900'],
-            blue['700'],
-            blue['500'],
-            blue['300'],
-            blue['100'],
-        ],
-        [
-            lightBlue['900'],
-            lightBlue['700'],
-            lightBlue['500'],
-            lightBlue['300'],
-            lightBlue['100'],
-        ],
-        [
-            cyan['900'],
-            cyan['700'],
-            cyan['500'],
-            cyan['300'],
-            cyan['100'],
-        ],
-        [
-            teal['900'],
-            teal['700'],
-            teal['500'],
-            teal['300'],
-            teal['100'],
-        ],
-        [
-            '#194D33',
-            green['700'],
-            green['500'],
-            green['300'],
-            green['100'],
-        ],
-        [
-            lightGreen['900'],
-            lightGreen['700'],
-            lightGreen['500'],
-            lightGreen['300'],
-            lightGreen['100'],
-        ],
-        [
-            lime['900'],
-            lime['700'],
-            lime['500'],
-            lime['300'],
-            lime['100'],
-        ],
-        [
-            yellow['900'],
-            yellow['700'],
-            yellow['500'],
-            yellow['300'],
-            yellow['100'],
-        ],
-        [
-            amber['900'],
-            amber['700'],
-            amber['500'],
-            amber['300'],
-            amber['100'],
-        ],
-        [
-            orange['900'],
-            orange['700'],
-            orange['500'],
-            orange['300'],
-            orange['100'],
-        ],
-        [
-            deepOrange['900'],
-            deepOrange['700'],
-            deepOrange['500'],
-            deepOrange['300'],
-            deepOrange['100'],
-        ],
-        [
-            brown['900'],
-            brown['700'],
-            brown['500'],
-            brown['300'],
-            brown['100'],
-        ],
-        [
-            blueGrey['900'],
-            blueGrey['700'],
-            blueGrey['500'],
-            blueGrey['300'],
-            blueGrey['100'],
-        ],
-        ['#000000', '#525252', '#969696', '#D9D9D9', '#FFFFFF'],
+        ['#b71c1c', '#d32f2f', '#f44336', '#e57373', '#ffcdd2'], // red
+        ['#880e4f', '#c2185b', '#e91e63', '#f06292', '#f8bbd0'], // pink
+        ['#4a148c', '#7b1fa2', '#9c27b0', '#ba68c8', '#e1bee7'], // purple
+        ['#311b92', '#512da8', '#673ab7', '#9575cd', '#d1c4e9'], // deepPurple
+        ['#1a237e', '#303f9f', '#3f51b5', '#7986cb', '#c5cae9'], // indigo
+        ['#0d47a1', '#1976d2', '#2196f3', '#64b5f6', '#bbdefb'], // blue
+        ['#01579b', '#0288d1', '#03a9f4', '#4fc3f7', '#b3e5fc'], // lightBlue
+        ['#006064', '#0097a7', '#00bcd4', '#4dd0e1', '#b2ebf2'], // cyan
+        ['#004d40', '#00796b', '#009688', '#4db6ac', '#b2dfdb'], // teal
+        ['#194D33', '#388e3c', '#4caf50', '#81c784', '#c8e6c9'], // green
+        ['#33691e', '#689f38', '#8bc34a', '#aed581', '#dcedc8'], // lightGreen
+        ['#827717', '#afb42b', '#cddc39', '#dce775', '#f0f4c3'], // lime
+        ['#f57f17', '#fbc02d', '#ffeb3b', '#fff176', '#fff9c4'], // yellow
+        ['#ff6f00', '#ffa000', '#ffc107', '#ffd54f', '#ffecb3'], // amber
+        ['#e65100', '#f57c00', '#ff9800', '#ffb74d', '#ffe0b2'], // orange
+        ['#bf360c', '#e64a19', '#ff5722', '#ff8a65', '#ffccbc'], // deepOrange
+        ['#3e2723', '#5d4037', '#795548', '#a1887f', '#d7ccc8'], // brown
+        ['#263238', '#455a64', '#607d8b', '#90a4ae', '#cfd8dc'], // blueGrey
+        ['#000000', '#525252', '#969696', '#D9D9D9', '#FFFFFF']  // grey
     ];
 
     @HostBinding('class.ngx-color-swatches')

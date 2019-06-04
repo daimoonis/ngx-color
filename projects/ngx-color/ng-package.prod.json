@@ -6,8 +6,7 @@
         "umdModuleIds": {
             "lodash": "lodash",
             "@ctrl/tinycolor": "@ctrl/tinycolor",
-            "@ngx-color-project/common": "@ngx-color-project/common",
-            "material-colors": "material-colors"
+            "@ngx-color-project/common": "@ngx-color-project/common"
         }
     }
 }

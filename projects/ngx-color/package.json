@@ -1,6 +1,6 @@
 {
     "name": "@daimoonis/ngx-color",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -12,7 +12,6 @@
         "@angular/material": "^7.0.0",
         "@ctrl/tinycolor": "^2.2.0",
         "lodash": "^4.17.11",
-        "material-colors": "^1.2.6",
         "rxjs": "^6.3.3"
     }
 }
