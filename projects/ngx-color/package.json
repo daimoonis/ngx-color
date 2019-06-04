@@ -1,16 +1,16 @@
 {
     "name": "@daimoonis/ngx-color",
-    "version": "1.0.7",
+    "version": "2.0.0",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/daimoonis/ngx-color.git"
     },
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "@angular/material": "^7.0.0",
-        "@ctrl/tinycolor": "^2.2.0",
+        "@angular/common": "^8.0.0",
+        "@angular/core": "^8.0.0",
+        "@angular/material": "^8.0.0",
+        "@ctrl/tinycolor": "^2.5.2",
         "lodash": "^4.17.11",
         "rxjs": "^6.3.3"
     }
